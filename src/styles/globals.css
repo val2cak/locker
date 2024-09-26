@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Righteous&family=Yesteryear&display=swap');
+@tailwind components;
+@tailwind base;
+@tailwind utilities;
+
+body,
+html {
+  margin: 0;
+  background-color: #ffffff !important;
+  color: #2a2c35;
+  font-family: 'Montserrat', sans-serif !important;
+  overscroll-behavior-y: none;
+  overscroll-behavior-block: none;
+  background-repeat: no-repeat;
+  min-height: 100dvh !important;
+}
+
+#root {
+  margin: 0 auto;
+}
