@@ -6,9 +6,9 @@
 body,
 html {
   margin: 0;
-  background-color: #ffffff !important;
+  background-color: #ffffff;
   color: #2a2c35;
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Montserrat', sans-serif;
   overscroll-behavior-y: none;
   overscroll-behavior-block: none;
   background-repeat: no-repeat;
