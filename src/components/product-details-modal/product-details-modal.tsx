@@ -10,6 +10,7 @@ import AmountSelector from './components/amount-selector';
 import locale from '../../localization/locale';
 import Button from '../button/button';
 import FavoriteCell from '../favorite-cell/favorite-cell';
+import { getUserFromStorage } from '../../services/storage';
 
 interface Props {
   product: Product;
@@ -18,6 +19,8 @@ interface Props {
 }
 
 const ProductDetailsModal: FC<Props> = ({ product, isOpen, onClose }) => {
+  const userJson: string | null = getUserFromStorage();
+
   const {
     additionalInfo,
     productDetails,
@@ -65,7 +68,9 @@ const ProductDetailsModal: FC<Props> = ({ product, isOpen, onClose }) => {
               onDecrease={decreaseAmount}
             />
             <Button text={button} className='!bg-primary' />
-            <FavoriteCell item={product} size={'text-xl'} />
+            {userJson !== null && (
+              <FavoriteCell item={product} size={'text-xl'} />
+            )}
           </div>
 
           <Section title={productDetails}>
@@ -132,7 +137,7 @@ const ProductDetailsModal: FC<Props> = ({ product, isOpen, onClose }) => {
             ))}
           </Section>
 
-          <div className='flex flex-col gap-1'>
+          <div className='flex flex-col gap-1 pb-8'>
             <span className='text-md font-medium uppercase'>{tags}</span>
             <div className='flex gap-2'>
               {product.tags.map((tag, idx) => (

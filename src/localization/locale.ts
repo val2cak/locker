@@ -25,10 +25,10 @@ const locale = {
   home: {
     button: 'Shop now',
     popularBeauty: 'Popular in Beauty',
-    popularElectronics: 'Popular in Electronics',
-    popularHomeLiving: 'Popular in Home & Living',
-    popularMensFashion: "Popular in Men's Fashion",
-    popularWomensFashion: "Popular in Women's Fashion",
+    popularLaptops: 'Popular in Laptops',
+    popularFurniture: 'Popular in Furniture',
+    popularMensWatches: "Popular in Men's Watches",
+    popularWomensDresses: "Popular in Women's Dresses",
   },
   products: {
     itemsFound: 'items found',

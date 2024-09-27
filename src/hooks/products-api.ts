@@ -30,6 +30,10 @@ export const productsApiSlice = createApi({
         query: () => '/categories',
         providesTags: ['Categories-List'],
       }),
+      getProductsByCategory: builder.query<ProductsResponse, string>({
+        query: (category) => `category/${category}`,
+        providesTags: ['Products-List'],
+      }),
     };
   },
 });
@@ -38,4 +42,5 @@ export const {
   useGetProductsQuery,
   useLazyGetProductsQuery,
   useGetCategoriesQuery,
+  useGetProductsByCategoryQuery,
 } = productsApiSlice;
