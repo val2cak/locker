@@ -34,3 +34,10 @@ export interface Category {
   name: string;
   url: string;
 }
+
+export interface ProductsResponse {
+  products: Product[];
+  total: number;
+  skip: number;
+  limit: number;
+}

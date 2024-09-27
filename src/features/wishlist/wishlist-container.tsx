@@ -1,5 +1,7 @@
+import Layout from '../layout';
+
 const WishlistContainer = () => {
-  return <div>WishlistContainer</div>;
+  return <Layout>WishlistContainer</Layout>;
 };
 
 export default WishlistContainer;

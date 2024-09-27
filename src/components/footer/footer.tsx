@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 
 import locale from '../../localization/locale';
 import { Routes } from '../../routes/Routes';
-import logo from '../../assets/images/logo.png';
 import { categories } from '../../constants/categories';
+import Logo from '../logo/logo';
 
 const Footer = () => {
   const { allRightsReserved } = locale.common;
 
   return (
     <div className='bottom-0 sm:px-8 lg:px-16 px-40 sm:py-12 py-24 w-full flex flex-col gap-16 bg-light text-dark text-base font-medium tracking-wider'>
-      <img src={logo} className='w-56' />
+      <Logo size={'w-64'} />
 
       <div className='flex gap-56'>
         <ul className='flex flex-col gap-2 justify-center'>

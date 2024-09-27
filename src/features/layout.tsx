@@ -14,7 +14,7 @@ const Layout: FC<Props> = ({ children }) => {
       <NavBar />
       <CategoriesBar />
 
-      <div className='flex-1 sm:px-8 lg:px-16 px-40 flex flex-col sm:gap-16 gap-24 sm:pb-16 pb-24'>
+      <div className='flex-1 sm:px-8 lg:px-16 px-40 flex flex-col sm:gap-16 gap-24 sm:pb-16 py-8'>
         {children}
       </div>
 

@@ -1,5 +1,7 @@
+import Layout from '../layout';
+
 const MyAccountContainer = () => {
-  return <div>MyAccountContainer</div>;
+  return <Layout>MyAccountContainer</Layout>;
 };
 
 export default MyAccountContainer;

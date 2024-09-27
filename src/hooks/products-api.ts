@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-import { Category, Product } from '../types/product-types';
+import { Category, ProductsResponse } from '../types/product-types';
 
 export const productsApiSlice = createApi({
   reducerPath: 'Product-Api-Slice',
@@ -12,7 +12,7 @@ export const productsApiSlice = createApi({
   keepUnusedDataFor: 0,
   endpoints(builder) {
     return {
-      getProducts: builder.query<Product[], string>({
+      getProducts: builder.query<ProductsResponse, string>({
         query: (userInput: string) => {
           const queryParams = new URLSearchParams();
           if (userInput && userInput.trim() !== '') {

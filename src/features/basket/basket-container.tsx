@@ -1,5 +1,7 @@
+import Layout from '../layout';
+
 const BasketContainer = () => {
-  return <div>BasketContainer</div>;
+  return <Layout>BasketContainer</Layout>;
 };
 
 export default BasketContainer;
