@@ -1,4 +1,10 @@
 import { Outlet } from 'react-router-dom';
+import {
+  SlBag as BasketIcon,
+  SlHeart as WishlistIcon,
+  SlUser as AccountIcon,
+} from 'react-icons/sl';
+import { AiOutlineLogin as LoginIcon } from 'react-icons/ai';
 
 import { CustomRouteObject } from '../types/general-types';
 import HomeContainer from '../features/home/home-container';
@@ -14,6 +20,7 @@ export const Routes: CustomRouteObject[] = [
   {
     path: '/login',
     name: 'Login',
+    icon: LoginIcon,
     element: <LoginContainer />,
   },
   {
@@ -32,17 +39,19 @@ export const Routes: CustomRouteObject[] = [
         element: <ProductsContainer />,
       },
       {
-        path: 'basket',
-        name: 'Basket',
+        path: 'my-account',
+        name: 'My Account',
+        icon: AccountIcon,
         element: (
           <ProtectedRoute>
-            <BasketContainer />
+            <MyAccountContainer />
           </ProtectedRoute>
         ),
       },
       {
         path: 'wishlist',
         name: 'Wishlist',
+        icon: WishlistIcon,
         element: (
           <ProtectedRoute>
             <WishlistContainer />
@@ -50,11 +59,12 @@ export const Routes: CustomRouteObject[] = [
         ),
       },
       {
-        path: 'my-account',
-        name: 'My Account',
+        path: 'basket',
+        name: 'Basket',
+        icon: BasketIcon,
         element: (
           <ProtectedRoute>
-            <MyAccountContainer />
+            <BasketContainer />
           </ProtectedRoute>
         ),
       },

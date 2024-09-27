@@ -12,8 +12,18 @@ export const productsApiSlice = createApi({
   keepUnusedDataFor: 0,
   endpoints(builder) {
     return {
-      getProducts: builder.query<Product[], void>({
-        query: () => '',
+      getProducts: builder.query<Product[], string>({
+        query: (userInput: string) => {
+          const queryParams = new URLSearchParams();
+          if (userInput && userInput.trim() !== '') {
+            queryParams.append('q', encodeURI(userInput));
+          }
+          const queryString = queryParams.toString();
+          const encodedQueryString = queryString
+            ? `/search?${queryString}`
+            : '';
+          return encodedQueryString ? encodedQueryString : '';
+        },
         providesTags: ['Products-List'],
       }),
       getCategories: builder.query<Category[], void>({
@@ -24,4 +34,8 @@ export const productsApiSlice = createApi({
   },
 });
 
-export const { useGetProductsQuery, useGetCategoriesQuery } = productsApiSlice;
+export const {
+  useGetProductsQuery,
+  useLazyGetProductsQuery,
+  useGetCategoriesQuery,
+} = productsApiSlice;

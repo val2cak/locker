@@ -5,6 +5,13 @@ const locale = {
     noDataMessage: 'No data found',
     search: 'Search',
     details: 'Details',
+    home: 'Home',
+    myAccount: 'My account',
+    wishlist: 'Wishlist',
+    basket: 'Basket',
+    products: 'Products',
+    login: 'Sign in',
+    logout: 'Sign out',
   },
   categories: {
     accessories: 'Accessories',
