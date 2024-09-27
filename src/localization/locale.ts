@@ -52,6 +52,10 @@ const locale = {
     comment: 'Comment',
     reviewerName: 'Reviewer name',
     tags: 'Tags',
+    button: 'Add to bag',
+    width: 'Width',
+    height: 'Height',
+    depth: 'Depth',
   },
   basket: {
     basket: 'Basket',

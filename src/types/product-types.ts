@@ -27,6 +27,7 @@ export interface Product {
   returnPolicy: string;
   minimumOrderQuantity: number;
   images: string[];
+  brand: string;
 }
 
 export interface Category {

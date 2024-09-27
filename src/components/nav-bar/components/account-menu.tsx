@@ -52,11 +52,11 @@ const AccountMenu = () => {
   return (
     <div className='relative' ref={dropdownRef}>
       <button onClick={toggleDropdown} className='flex items-center'>
-        <AccountIcon className='text-lg' />
+        <AccountIcon className='text-lg hover:text-primary' />
       </button>
 
       {isOpen && (
-        <div className='absolute right-0 mt-2 w-48 bg-dark bg-opacity-95 text-light shadow-lg font-righteous text-md capitalize'>
+        <div className='absolute right-0 mt-2 w-48 bg-dark bg-opacity-95 text-light shadow-md font-righteous text-md capitalize'>
           <ul className='py-2'>
             {isLoggedIn ? (
               <>

@@ -27,7 +27,7 @@ const SearchInput = ({ onSearch }) => {
         value={userInput}
         onChange={handleChange}
         placeholder={search + '...'}
-        className='w-full outline-none bg-primary text-dark font-medium pl-12 sm:pr-9 pr-10 py-1 rounded-3xl placeholder:text-dark placeholder:text-opacity-50'
+        className='w-full outline-none bg-primary text-dark font-medium pl-12 sm:pr-9 pr-10 py-1 rounded-full placeholder:text-dark placeholder:text-opacity-50'
       />
       {userInput && (
         <ClearIcon

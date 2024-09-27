@@ -33,7 +33,7 @@ const Dropdown: FC<Props> = ({ items, onSelect, selectedItem }) => {
   return (
     <div
       ref={ref}
-      className='sm:w-full w-56 pb-0 relative border border-dark rounded-3xl bg-transparent text-dark'
+      className='sm:w-full w-56 pb-0 relative border border-dark rounded-full bg-transparent text-dark'
     >
       <div
         onClick={() => setOpen(!open)}

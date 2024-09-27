@@ -4,6 +4,7 @@ import { debounce } from 'lodash';
 import { Product } from '../../types/product-types';
 import { useLazyGetProductsQuery } from '../../hooks/products-api';
 import SearchInput from './components/search-input';
+import ProductDetailsModal from '../product-details-modal/product-details-modal';
 
 const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -11,6 +12,19 @@ const SearchBar = () => {
   const [getProducts, { data: resultsData, isLoading }] =
     useLazyGetProductsQuery();
   const resultsRef = useRef<HTMLDivElement>(null);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+
+  const handleModalOpen = (product: Product) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+    setSelectedProduct(null);
+  };
 
   const debouncedGetProducts = useRef(
     debounce(async (query: string) => {
@@ -56,9 +70,10 @@ const SearchBar = () => {
   return (
     <div className='relative w-full'>
       <SearchInput onSearch={handleSearch} />
+
       {searchQuery && searchResults.length > 0 && (
         <div
-          className='absolute top-full left-0 w-full bg-white shadow-lg z-50 mt-1 overflow-y-auto max-h-96'
+          className='absolute top-full left-0 w-full bg-white shadow-md z-50 mt-1 overflow-y-auto max-h-96'
           ref={resultsRef}
         >
           {isLoading ? (
@@ -68,6 +83,7 @@ const SearchBar = () => {
               {searchResults.map((product) => (
                 <li
                   key={product.id}
+                  onClick={() => handleModalOpen(product)}
                   className='flex justify-between p-4 border-b border-light hover:bg-light cursor-pointer'
                 >
                   <div>
@@ -79,6 +95,14 @@ const SearchBar = () => {
             </ul>
           )}
         </div>
+      )}
+
+      {selectedProduct && (
+        <ProductDetailsModal
+          isOpen={isModalOpen}
+          product={selectedProduct}
+          onClose={handleModalClose}
+        />
       )}
     </div>
   );
