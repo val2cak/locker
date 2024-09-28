@@ -42,3 +42,9 @@ export interface ProductsResponse {
   skip: number;
   limit: number;
 }
+
+export interface ProductsRequest {
+  userInput?: string;
+  skip?: number;
+  limit?: number;
+}

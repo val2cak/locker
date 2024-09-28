@@ -5,6 +5,7 @@ import { Product } from '../../types/product-types';
 import { useLazyGetProductsQuery } from '../../hooks/products-api';
 import SearchInput from './components/search-input';
 import ProductDetailsModal from '../product-details-modal/product-details-modal';
+import Loader from '../loader/loader';
 
 const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -29,7 +30,7 @@ const SearchBar = () => {
   const debouncedGetProducts = useRef(
     debounce(async (query: string) => {
       if (query.length > 2) {
-        await getProducts(query).unwrap();
+        await getProducts({ userInput: query }).unwrap();
       }
     }, 300)
   ).current;
@@ -77,7 +78,7 @@ const SearchBar = () => {
           ref={resultsRef}
         >
           {isLoading ? (
-            <div className='p-4 text-center'>Loading...</div>
+            <Loader />
           ) : (
             <ul>
               {searchResults.map((product) => (

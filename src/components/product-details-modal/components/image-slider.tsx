@@ -30,7 +30,7 @@ const ImageSlider: FC<Props> = ({ images, title }) => {
         <img
           src={images[currentImageIndex]}
           alt={title}
-          className='w-full h-full object-contain bg-light bg-opacity-75'
+          className='w-full h-[480px] object-contain bg-light bg-opacity-75'
         />
         <button
           onClick={prevImage}

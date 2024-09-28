@@ -18,17 +18,18 @@ const ProductCard: FC<Props> = ({ product }) => {
   const handleModalClose = () => setIsModalOpen(false);
 
   return (
-    <div className='bg-white hover:shadow-md max-w-80'>
-      <div className='w-80 h-80 bg-light flex items-center justify-center'>
+    <div className='bg-white hover:shadow-md max-w-64'>
+      <div className='w-full h-72 bg-light flex items-center justify-center'>
         <img
           src={product.images[0]}
           alt={product.title}
           className='object-contain w-full h-full'
+          loading='lazy'
         />
       </div>
 
       <div className='p-4 flex flex-col items-start'>
-        <span className='text-base font-semibold leading-4'>
+        <span className='text-base font-semibold leading-3'>
           {product.title}
         </span>
         <span className='text-base text-dark text-opacity-50 leading-3'>

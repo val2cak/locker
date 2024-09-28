@@ -9,6 +9,7 @@ import { useGetProductsByCategoryQuery } from '../../hooks/products-api';
 import ProductsSlider from './components/products-slider';
 import CategoryCard from './components/category-card';
 import { categories } from '../../constants/categories';
+import Loader from '../../components/loader/loader';
 
 const HomeContainer = () => {
   const {
@@ -51,7 +52,7 @@ const HomeContainer = () => {
           {popularBeauty}
         </span>
         {loadingBeauty ? (
-          <p>Loading...</p>
+          <Loader />
         ) : (
           beautyProducts && (
             <ProductsSlider products={beautyProducts.products} />
@@ -64,7 +65,7 @@ const HomeContainer = () => {
           {popularLaptops}
         </span>
         {loadingLaptops ? (
-          <p>Loading...</p>
+          <Loader />
         ) : (
           laptopsProducts && (
             <ProductsSlider products={laptopsProducts.products} />
@@ -77,7 +78,7 @@ const HomeContainer = () => {
           {popularFurniture}
         </span>
         {loadingFurniture ? (
-          <p>Loading...</p>
+          <Loader />
         ) : (
           furnitureProducts && (
             <ProductsSlider products={furnitureProducts.products} />
@@ -99,7 +100,7 @@ const HomeContainer = () => {
           {popularMensWatches}
         </span>
         {loadingMensWatches ? (
-          <p>Loading...</p>
+          <Loader />
         ) : (
           mensWatchesProducts && (
             <ProductsSlider products={mensWatchesProducts.products} />
@@ -112,7 +113,7 @@ const HomeContainer = () => {
           {popularWomensDresses}
         </span>
         {loadingWomensDresses ? (
-          <p>Loading...</p>
+          <Loader />
         ) : (
           womensDressesProducts && (
             <ProductsSlider products={womensDressesProducts.products} />
@@ -122,7 +123,7 @@ const HomeContainer = () => {
 
       <div className='bg-dark flex justify-between px-40 py-8'>
         {loadingSports ? (
-          <p>Loading...</p>
+          <Loader />
         ) : (
           sportsProducts && (
             <CategoryCard
@@ -140,7 +141,7 @@ const HomeContainer = () => {
         )}
 
         {loadingVehicles ? (
-          <p>Loading...</p>
+          <Loader />
         ) : (
           vehiclesProducts && (
             <CategoryCard
@@ -160,7 +161,7 @@ const HomeContainer = () => {
         )}
 
         {loadingHome ? (
-          <p>Loading...</p>
+          <Loader />
         ) : (
           homeProducts && (
             <CategoryCard
