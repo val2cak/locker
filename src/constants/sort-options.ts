@@ -1,6 +1,11 @@
 export const sortOptions = [
   {
-    name: 'Title',
+    name: 'Sort',
+    sortBy: '',
+    order: '',
+  },
+  {
+    name: 'Title (A - Z)',
     sortBy: 'title',
     order: 'asc',
   },

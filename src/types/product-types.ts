@@ -55,3 +55,8 @@ export interface ProductsRequest {
   limit?: number;
   sort?: SortOptions;
 }
+
+export interface BasketItem {
+  product: Product;
+  amount: number;
+}

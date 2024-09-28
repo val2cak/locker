@@ -1,4 +1,5 @@
 import { FC, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Product } from '../../types/product-types';
 import Modal from '../modal/modal';
@@ -11,6 +12,8 @@ import locale from '../../localization/locale';
 import Button from '../button/button';
 import FavoriteCell from '../favorite-cell/favorite-cell';
 import { getUserFromStorage } from '../../services/storage';
+import { RootState } from '../../app/store';
+import { addProduct, removeProduct } from '../../hooks/basket-state';
 
 interface Props {
   product: Product;
@@ -19,6 +22,10 @@ interface Props {
 }
 
 const ProductDetailsModal: FC<Props> = ({ product, isOpen, onClose }) => {
+  const dispatch = useDispatch();
+  const basket = useSelector((state: RootState) => state.basket.basket);
+  const isInBasket = basket.some((item) => item.product.id === product.id);
+
   const userJson: string | null = getUserFromStorage();
 
   const {
@@ -26,7 +33,8 @@ const ProductDetailsModal: FC<Props> = ({ product, isOpen, onClose }) => {
     productDetails,
     reviews,
     tags,
-    button,
+    addButton,
+    removeButton,
     description,
     availabilityStatus,
     brand,
@@ -48,6 +56,14 @@ const ProductDetailsModal: FC<Props> = ({ product, isOpen, onClose }) => {
     }
   };
 
+  const handleBasket = () => {
+    if (isInBasket) {
+      dispatch(removeProduct(product.id));
+    } else {
+      dispatch(addProduct({ product, amount }));
+    }
+  };
+
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <div className='flex flex-row h-[600px]'>
@@ -61,17 +77,24 @@ const ProductDetailsModal: FC<Props> = ({ product, isOpen, onClose }) => {
             <RatingStars rating={product.rating} />
           </div>
 
-          <div className='flex items-center gap-4'>
-            <AmountSelector
-              amount={amount}
-              onIncrease={increaseAmount}
-              onDecrease={decreaseAmount}
-            />
-            <Button text={button} className='!bg-primary' />
-            {userJson !== null && (
+          {userJson !== null && (
+            <div className='flex items-center gap-4'>
+              {!isInBasket && (
+                <AmountSelector
+                  amount={amount}
+                  onIncrease={increaseAmount}
+                  onDecrease={decreaseAmount}
+                />
+              )}
+              <Button
+                text={isInBasket ? removeButton : addButton}
+                className='!bg-primary'
+                handleOnClick={handleBasket}
+              />
+
               <FavoriteCell item={product} size={'text-xl'} />
-            )}
-          </div>
+            </div>
+          )}
 
           <Section title={productDetails}>
             <p className='flex flex-col'>
