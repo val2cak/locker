@@ -11,7 +11,7 @@ const Dropdown: FC<Props> = ({ items, onSelect, selectedItem }) => {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  const handleSelect = (item: number) => {
+  const handleSelect = (item: any) => {
     onSelect(item);
     setOpen(false);
   };
@@ -37,9 +37,7 @@ const Dropdown: FC<Props> = ({ items, onSelect, selectedItem }) => {
     >
       <div
         onClick={() => setOpen(!open)}
-        className={
-          'flex items-center justify-between gap-2 hover:cursor-pointer font-semibold pl-6 pr-4 py-2 sm:w-full w-56'
-        }
+        className='flex items-center justify-between gap-2 hover:cursor-pointer font-semibold pl-6 pr-4 py-2 sm:w-full w-56'
       >
         <p
           className={`${
@@ -48,7 +46,6 @@ const Dropdown: FC<Props> = ({ items, onSelect, selectedItem }) => {
         >
           {selectedItem.name}
         </p>
-
         <DropdownIcon className={`${open && 'rotate-180'} text-md`} />
       </div>
 

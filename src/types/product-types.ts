@@ -43,8 +43,15 @@ export interface ProductsResponse {
   limit: number;
 }
 
+export interface SortOptions {
+  name: string;
+  sortBy: string;
+  order: string;
+}
+
 export interface ProductsRequest {
   userInput?: string;
   skip?: number;
   limit?: number;
+  sort?: SortOptions;
 }

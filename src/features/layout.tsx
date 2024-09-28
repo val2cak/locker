@@ -17,13 +17,7 @@ const Layout: FC<Props> = ({ children }) => {
       <NavBar />
       <CategoriesBar />
 
-      <div
-        className={`flex-1 flex flex-col gap-16  ${
-          location.pathname === '/' ? '' : 'sm:px-8 lg:px-16 px-40 py-8'
-        }`}
-      >
-        {children}
-      </div>
+      <div className='flex-1 flex flex-col gap-16'>{children}</div>
 
       <Footer />
     </div>
