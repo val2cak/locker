@@ -1,19 +1,20 @@
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { getUserFromStorage } from '../services/storage';
+
+import { getUserFromStorage, removeUserFromStorage } from '../services/storage';
 
 const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
   const navigateTo = useNavigate();
   const location = useLocation();
 
-  const user = getUserFromStorage();
-  const tokenExpiry = user
-    ? new Date(JSON.parse(user)?.tokenExpiry).getTime()
-    : null;
+  const storedUser = getUserFromStorage();
+  const user = storedUser ? JSON.parse(storedUser) : null;
+  const tokenExpiry = user ? new Date(user.tokenExpiry).getTime() : null;
   const isTokenExpired = tokenExpiry && tokenExpiry < Date.now();
 
   useEffect(() => {
     if (!user || isTokenExpired) {
+      removeUserFromStorage();
       navigateTo('/login', { state: { from: location.pathname } });
     }
   }, [user, isTokenExpired, navigateTo, location]);

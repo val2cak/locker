@@ -16,7 +16,10 @@ const Links = () => {
         .map((route, index) => (
           <Fragment key={index}>
             <li className='text-lg'>
-              <NavLink to={route.path} className='text-dark hover:text-primary'>
+              <NavLink
+                to={`/${route.path}`}
+                className='text-dark hover:text-primary'
+              >
                 <route.icon />
               </NavLink>
             </li>

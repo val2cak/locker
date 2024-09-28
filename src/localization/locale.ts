@@ -89,9 +89,9 @@ const locale = {
     cardType: 'Card type',
   },
   login: {
-    login: 'Login',
+    button: 'Login',
     signIn: 'Sign in',
-    email: 'Email address',
+    username: 'Username',
     password: 'Password',
   },
   pageNotFound: {

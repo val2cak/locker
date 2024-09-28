@@ -28,6 +28,7 @@ export interface User {
   expiresIn?: number;
   address?: Address;
   bank?: Bank;
+  tokenExpiry?: string;
 }
 
 export interface LoginRequest {
