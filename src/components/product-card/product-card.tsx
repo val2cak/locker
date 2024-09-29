@@ -20,7 +20,7 @@ const ProductCard: FC<Props> = ({ product }) => {
 
   return (
     <div className='bg-white hover:shadow-md max-w-64'>
-      <div className='w-full h-72 bg-light flex items-center justify-center'>
+      <div className='w-64 h-72 bg-light flex items-center justify-center'>
         <img
           src={product.images[0] || placeholder}
           alt={product.title}

@@ -6,6 +6,7 @@ import {
   AiOutlineLogout as LogoutIcon,
 } from 'react-icons/ai';
 import { PiUser as UserIcon } from 'react-icons/pi';
+import toast from 'react-hot-toast';
 
 import {
   getUserFromStorage,
@@ -14,7 +15,7 @@ import {
 import locale from '../../../localization/locale';
 
 const AccountMenu = () => {
-  const { myAccount, logout, login } = locale.common;
+  const { myAccount, logout, login, signOutSuccessful } = locale.common;
 
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -47,6 +48,7 @@ const AccountMenu = () => {
   const handleSignOut = () => {
     removeUserFromStorage();
     setIsLoggedIn(false);
+    toast.success(signOutSuccessful);
   };
 
   return (

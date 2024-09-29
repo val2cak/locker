@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import { useLoginMutation } from '../../../hooks/auth-api';
 import { setUserToStorage } from '../../../services/storage';
@@ -10,7 +10,11 @@ import locale from '../../../localization/locale';
 const LoginForm = () => {
   const { username, button, password, signIn } = locale.login;
   const [login, { isError, error }] = useLoginMutation();
+
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from || '/';
 
   const onSubmit = async (formData: { username: string; password: string }) => {
     try {
@@ -32,7 +36,7 @@ const LoginForm = () => {
         tokenExpiry: tokenExpiry.toISOString(),
       });
 
-      navigate('/');
+      navigate(from);
     } catch (err) {
       console.error('Login error:', err);
     }
@@ -44,7 +48,7 @@ const LoginForm = () => {
         <span className='text-center text-2xl font-righteous'>{signIn}</span>
 
         {isError && (
-          <span className='text-error font-medium'>
+          <span className='text-error font-medium flex justify-center w-full'>
             {(error as any)?.data?.message}
           </span>
         )}

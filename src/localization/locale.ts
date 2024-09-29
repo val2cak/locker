@@ -12,6 +12,7 @@ const locale = {
     products: 'Products',
     login: 'Sign in',
     logout: 'Sign out',
+    signOutSuccessful: 'You have been logged out. See you next time!',
   },
   categories: {
     accessories: 'Accessories',
@@ -100,6 +101,8 @@ const locale = {
     signIn: 'Sign in',
     username: 'Username',
     password: 'Password',
+    youNeedToBeLoggedIn: 'You need to be logged in to access this page.',
+    sessionExpired: 'Your session has expired. Please log in again.',
   },
   pageNotFound: {
     title: 'Page not found',
