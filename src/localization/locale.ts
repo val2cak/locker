@@ -71,6 +71,8 @@ const locale = {
   },
   wishlist: {
     wishlist: 'Wishlist',
+    shopNow: 'Shop now',
+    noItems: 'You have no items on your wishlist yet',
   },
   myAccount: {
     myAccount: 'My account',
