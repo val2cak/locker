@@ -34,7 +34,7 @@ const CategoriesBar = () => {
   return (
     <div
       ref={dropdownRef}
-      className='w-full bg-dark text-light py-4 sm:px-8 lg:px-16 px-40 uppercase text-base font-righteous z-30'
+      className='w-full bg-dark text-light py-4 sm:px-8 lg:px-16 px-40 text-base font-righteous z-30'
     >
       <div className='mx-auto'>
         <ul className='flex justify-between items-center gap-8'>
@@ -53,7 +53,7 @@ const CategoriesBar = () => {
                       <li key={child.slug}>
                         <Link
                           to={`/products?category=${child.slug}`}
-                          className={`block px-4 py-2  ${
+                          className={`block px-4 py-2 capitalize ${
                             categoryFromQuery === child.slug
                               ? 'text-primary'
                               : 'hover:text-primary'

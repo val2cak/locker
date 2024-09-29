@@ -58,7 +58,7 @@ const AccountMenu = () => {
       </button>
 
       {isOpen && (
-        <div className='absolute right-0 mt-2 w-48 bg-dark bg-opacity-95 text-light shadow-md font-righteous text-md capitalize'>
+        <div className='absolute right-0 mt-2 w-48 bg-dark bg-opacity-95 text-light shadow-md font-righteous text-md capitalize z-40'>
           <ul className='py-2'>
             {isLoggedIn ? (
               <>
