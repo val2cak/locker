@@ -10,7 +10,7 @@ interface Props {
 const Logo: FC<Props> = ({ size }) => {
   return (
     <NavLink to={'/'}>
-      <img src={logo} className={size} alt='logo' />
+      <img src={logo} className={size} alt='logo' loading='lazy' />
     </NavLink>
   );
 };

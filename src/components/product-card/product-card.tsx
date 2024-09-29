@@ -4,6 +4,7 @@ import { Product } from '../../types/product-types';
 import ProductDetailsModal from '../product-details-modal/product-details-modal';
 import locale from '../../localization/locale';
 import { truncateText } from '../../utils/truncate-text';
+import placeholder from '../../assets/images/product-placeholder.png';
 
 interface Props {
   product: Product;
@@ -21,7 +22,7 @@ const ProductCard: FC<Props> = ({ product }) => {
     <div className='bg-white hover:shadow-md max-w-64'>
       <div className='w-full h-72 bg-light flex items-center justify-center'>
         <img
-          src={product.images[0]}
+          src={product.images[0] || placeholder}
           alt={product.title}
           className='object-contain w-full h-full'
           loading='lazy'

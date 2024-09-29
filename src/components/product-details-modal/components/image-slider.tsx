@@ -3,6 +3,7 @@ import {
   MdOutlineArrowBackIos as ArrowBack,
   MdOutlineArrowForwardIos as ArrowForward,
 } from 'react-icons/md';
+import placeholder from '../../../assets/images/user-placeholder.png';
 
 interface Props {
   images: string[];
@@ -28,9 +29,10 @@ const ImageSlider: FC<Props> = ({ images, title }) => {
     <div className='w-full flex flex-col gap-4'>
       <div className='flex items-center justify-center relative'>
         <img
-          src={images[currentImageIndex]}
+          src={images[currentImageIndex] || placeholder}
           alt={title}
           className='w-full h-[480px] object-contain bg-light bg-opacity-75'
+          loading='lazy'
         />
         <button
           onClick={prevImage}
@@ -55,6 +57,7 @@ const ImageSlider: FC<Props> = ({ images, title }) => {
             className={`w-24 h-24 object-contain cursor-pointer ${
               idx === currentImageIndex ? 'bg-light' : ''
             }`}
+            loading='lazy'
           />
         ))}
       </div>

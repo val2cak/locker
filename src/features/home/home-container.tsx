@@ -45,7 +45,12 @@ const HomeContainer = () => {
 
   return (
     <Layout>
-      <img src={hero} alt={'hero'} className='w-full object-contain' />
+      <img
+        src={hero}
+        alt={'hero'}
+        className='w-full object-contain'
+        loading='lazy'
+      />
 
       <div>
         <span className='text-3xl font-righteous uppercase px-40'>
@@ -87,7 +92,12 @@ const HomeContainer = () => {
       </div>
 
       <div className='bg-dark py-8 flex flex-col items-center'>
-        <img src={banner} alt={'banner'} className='w-full object-contain' />
+        <img
+          src={banner}
+          alt={'banner'}
+          className='w-full object-contain'
+          loading='lazy'
+        />
         <Button
           text={button}
           className='w-fit !bg-primary !px-14 !text-lg'

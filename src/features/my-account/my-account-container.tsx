@@ -7,6 +7,7 @@ import Layout from '../layout';
 import DeliveryInfoCard from './components/delivery-info-card';
 import PaymentInfoCard from './components/payment-info-card';
 import PersonalInfoCard from './components/personal-info-card';
+import placeholder from '../../assets/images/user-placeholder.png';
 
 const MyAccountContainer = () => {
   const { myAccount } = locale.myAccount;
@@ -28,7 +29,7 @@ const MyAccountContainer = () => {
             </span>
 
             <img
-              src={userData?.image}
+              src={userData?.image || placeholder}
               alt={userData?.username}
               className='rounded-full border border-dark border-opacity-10'
               width={100}
