@@ -1,6 +1,8 @@
 import { FC, useEffect, useRef, useState } from 'react';
 import { RxChevronDown as DropdownIcon } from 'react-icons/rx';
 
+import { truncateText } from '../../utils/truncate-text';
+
 interface Props {
   onSelect: (item: any) => void;
   items: any[];
@@ -44,7 +46,7 @@ const Dropdown: FC<Props> = ({ items, onSelect, selectedItem }) => {
             selectedItem ? 'opacity-100' : 'opacity-70'
           } lining-nums`}
         >
-          {selectedItem.name}
+          {truncateText(selectedItem.name, 15)}
         </p>
         <DropdownIcon className={`${open && 'rotate-180'} text-md`} />
       </div>

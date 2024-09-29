@@ -17,22 +17,29 @@ export const productsApiSlice = createApi({
   endpoints(builder) {
     return {
       getProducts: builder.query<ProductsResponse, ProductsRequest>({
-        query: ({ userInput, skip, limit, sort }) => {
+        query: ({ userInput, skip, limit, sort, category }) => {
           const queryParams = new URLSearchParams();
-
-          if (userInput && userInput.trim() !== '') {
-            queryParams.append('q', encodeURI(userInput));
-          }
 
           if (skip) queryParams.append('skip', skip.toString());
           if (limit) queryParams.append('limit', limit.toString());
+
           if (sort) {
             if (sort.sortBy) queryParams.append('sortBy', sort.sortBy);
             if (sort.order) queryParams.append('order', sort.order);
           }
 
+          let endpoint;
+          if (userInput && userInput.trim() !== '') {
+            queryParams.append('q', encodeURI(userInput));
+            endpoint = `/search`;
+          } else if (category) {
+            endpoint = `/category/${category}`;
+          } else {
+            endpoint = '';
+          }
+
           const queryString = queryParams.toString();
-          return queryString ? `/search?${queryString}` : '';
+          return queryString ? `${endpoint}?${queryString}` : endpoint;
         },
         providesTags: ['Products-List'],
       }),
@@ -40,6 +47,10 @@ export const productsApiSlice = createApi({
       getCategories: builder.query<Category[], void>({
         query: () => '/categories',
         providesTags: ['Categories-List'],
+        transformResponse: (response: Category[]) => {
+          const defaultCategory = { name: 'Category', slug: '' };
+          return [defaultCategory, ...response];
+        },
       }),
 
       getProductsByCategory: builder.query<ProductsResponse, string>({

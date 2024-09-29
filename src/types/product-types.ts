@@ -33,7 +33,7 @@ export interface Product {
 export interface Category {
   slug: string;
   name: string;
-  url: string;
+  url?: string;
 }
 
 export interface ProductsResponse {
@@ -54,6 +54,7 @@ export interface ProductsRequest {
   skip?: number;
   limit?: number;
   sort?: SortOptions;
+  category?: string;
 }
 
 export interface BasketItem {
