@@ -1,18 +1,33 @@
 import { FC } from 'react';
+import { useSelector } from 'react-redux';
+import toast from 'react-hot-toast';
 
 import locale from '../../../localization/locale';
 import Button from '../../../components/button/button';
+import { selectProducts } from '../../../hooks/basket-state';
 
-interface PaymentSectionProps {
+interface Props {
   totalPrice: number;
   deliveryCost: number;
+  clearBasket: () => void;
 }
 
-const PaymentSection: FC<PaymentSectionProps> = ({
+const PaymentSection: FC<Props> = ({
   totalPrice,
   deliveryCost,
+  clearBasket,
 }) => {
-  const { price, payment, delivery, total, buyNow } = locale.basket;
+  const { price, payment, delivery, total, buyNow, purchaseSuccessful } =
+    locale.basket;
+
+  const basketProducts = useSelector(selectProducts);
+
+  const handleBuyNow = () => {
+    if (basketProducts.length > 0) {
+      toast.success(purchaseSuccessful);
+      clearBasket();
+    }
+  };
 
   return (
     <div className='bg-primary p-9 flex flex-col gap-4'>
@@ -40,7 +55,7 @@ const PaymentSection: FC<PaymentSectionProps> = ({
         </span>
       </div>
 
-      <Button text={buyNow} className='w-full' />
+      <Button text={buyNow} className='w-full' handleOnClick={handleBuyNow} />
     </div>
   );
 };

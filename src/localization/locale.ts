@@ -65,6 +65,9 @@ const locale = {
     delivery: 'Delivery',
     total: 'Total',
     buyNow: 'Buy now',
+    purchaseSuccessful: 'Purchase successful!',
+    shopNow: 'Shop now',
+    noItems: 'No items in the basket',
   },
   wishlist: {
     wishlist: 'Wishlist',

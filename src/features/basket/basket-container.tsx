@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { BasketItem } from '../../types/product-types';
@@ -46,6 +46,10 @@ const BasketContainer = () => {
     0
   );
 
+  const clearBasket = () => {
+    dispatch(setProducts([]));
+  };
+
   return (
     <Layout>
       <div className='sm:px-8 lg:px-16 px-40 py-8 flex flex-col gap-8'>
@@ -64,6 +68,7 @@ const BasketContainer = () => {
             <PaymentSection
               totalPrice={totalPrice}
               deliveryCost={deliveryCost}
+              clearBasket={clearBasket}
             />
           </div>
         </div>
