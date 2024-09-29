@@ -71,7 +71,10 @@ const ProductDetailsModal: FC<Props> = ({ product, isOpen, onClose }) => {
 
         <div className='w-full p-4 flex flex-col gap-4'>
           <h2 className='text-lg font-semibold'>{product.title}</h2>
-          <p className='text-xl font-semibold'>€{product.price.toFixed(2)}</p>
+          <p className='text-xl font-semibold'>
+            {'€'}
+            {product.price.toFixed(2)}
+          </p>
 
           <div className='flex items-center'>
             <RatingStars rating={product.rating} />

@@ -89,7 +89,10 @@ const SearchBar = () => {
                 >
                   <div>
                     <p className='font-semibold'>{product.title}</p>
-                    <p className='text-sm'>€{product.price.toFixed(2)}</p>
+                    <p className='text-sm'>
+                      {'€'}
+                      {product.price.toFixed(2)}
+                    </p>
                   </div>
                 </li>
               ))}

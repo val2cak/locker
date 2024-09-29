@@ -36,7 +36,7 @@ const ProductCard: FC<Props> = ({ product }) => {
           {truncateText(product.description, 100)}
         </span>
         <span className='text-lg font-semibold'>
-          €{product.price.toFixed(2)}
+          {'€'} {product.price.toFixed(2)}
         </span>
         <button
           onClick={handleModalOpen}
