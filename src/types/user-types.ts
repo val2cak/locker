@@ -40,4 +40,5 @@ export interface LoginRequest {
 export interface AuthResponse {
   token: string;
   expiresIn: number;
+  id: number;
 }

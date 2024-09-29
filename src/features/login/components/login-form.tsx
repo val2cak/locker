@@ -26,6 +26,7 @@ const LoginForm = () => {
 
       setUserToStorage({
         username,
+        id: response.id,
         token: response.token,
         expiresIn: expiresInMinutes,
         tokenExpiry: tokenExpiry.toISOString(),
