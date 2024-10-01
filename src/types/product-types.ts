@@ -27,10 +27,37 @@ export interface Product {
   returnPolicy: string;
   minimumOrderQuantity: number;
   images: string[];
+  brand: string;
 }
 
 export interface Category {
   slug: string;
   name: string;
-  url: string;
+  url?: string;
+}
+
+export interface ProductsResponse {
+  products: Product[];
+  total: number;
+  skip: number;
+  limit: number;
+}
+
+export interface SortOptions {
+  name: string;
+  sortBy: string;
+  order: string;
+}
+
+export interface ProductsRequest {
+  userInput?: string;
+  skip?: number;
+  limit?: number;
+  sort?: SortOptions;
+  category?: string;
+}
+
+export interface BasketItem {
+  product: Product;
+  amount: number;
 }

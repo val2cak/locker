@@ -28,6 +28,7 @@ export interface User {
   expiresIn?: number;
   address?: Address;
   bank?: Bank;
+  tokenExpiry?: string;
 }
 
 export interface LoginRequest {
@@ -39,4 +40,5 @@ export interface LoginRequest {
 export interface AuthResponse {
   token: string;
   expiresIn: number;
+  id: number;
 }

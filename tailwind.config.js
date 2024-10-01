@@ -34,13 +34,14 @@ module.exports = {
       colors: {
         primary: '#FFD42D',
         dark: '#2A2C35',
-        light: '#F1F2EB',
+        light: '#F7F7F7',
         error: '#D52E3F',
         success: '#2BA84A',
         gray: '#798490',
       },
       backgroundImage: () => ({}),
       lineHeight: {
+        2: '1rem',
         3: '1.2rem',
         4: '1.6rem',
         5: '2.0rem',

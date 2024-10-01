@@ -5,10 +5,10 @@ import {
   getProductsFromStorage,
   setProductsToStorage,
 } from '../services/storage';
-import { Product } from '../types/product-types';
+import { BasketItem } from '../types/product-types';
 
 interface BasketState {
-  basket: Product[];
+  basket: BasketItem[];
 }
 
 const productsFromStorage = getProductsFromStorage();
@@ -21,17 +21,17 @@ export const basketSlice = createSlice({
   name: 'Basket-State-Slice',
   initialState,
   reducers: {
-    addProduct: (state, action: PayloadAction<Product>) => {
+    addProduct: (state, action: PayloadAction<BasketItem>) => {
       state.basket.push(action.payload);
       setProductsToStorage(state.basket);
     },
     removeProduct: (state, action: PayloadAction<string>) => {
       state.basket = state.basket.filter(
-        (product: Product) => product.id !== action.payload
+        (item: BasketItem) => item.product.id !== action.payload
       );
       setProductsToStorage(state.basket);
     },
-    setProducts: (state, action: PayloadAction<Product[]>) => {
+    setProducts: (state, action: PayloadAction<BasketItem[]>) => {
       state.basket = action.payload;
       setProductsToStorage(state.basket);
     },

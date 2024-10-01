@@ -1,4 +1,4 @@
-import { Product } from '../types/product-types';
+import { BasketItem, Product } from '../types/product-types';
 import { User } from '../types/user-types';
 
 export function getUserFromStorage(): string | null {
@@ -29,7 +29,7 @@ export function getProductsFromStorage(): string | null {
   return localStorage.getItem('products');
 }
 
-export function setProductsToStorage(products: Product[]): void {
+export function setProductsToStorage(products: BasketItem[]): void {
   localStorage.setItem('products', JSON.stringify(products));
 }
 
