@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FiMenu as MenuIcon } from 'react-icons/fi';
 import {
@@ -17,7 +17,12 @@ import {
 } from '../../../services/storage';
 import locale from '../../../localization/locale';
 
-const MobileMenu = ({ onClose }) => {
+interface Props {
+  onClose: () => void;
+  isOpen: boolean;
+}
+
+const MobileMenu: FC<Props> = ({ onClose, isOpen }) => {
   const { myAccount, logout, login, signOutSuccessful } = locale.common;
 
   const userJson: string | null = getUserFromStorage();
@@ -32,9 +37,24 @@ const MobileMenu = ({ onClose }) => {
     toast.success(signOutSuccessful);
   };
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    return () => {
+      document.body.classList.remove('overflow-hidden');
+    };
+  }, [isOpen]);
+
   return (
     <div className='fixed inset-0 z-50 flex'>
-      <div className='fixed inset-0 bg-dark opacity-50' onClick={onClose}></div>
+      <div
+        className='fixed inset-0 bg-dark opacity-50 overflow-y-auto'
+        onClick={onClose}
+      ></div>
 
       <div className='relative bg-dark text-light w-3/4 h-full shadow-lg overflow-y-auto transition-transform transform flex flex-col gap-8'>
         <button

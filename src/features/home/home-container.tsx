@@ -58,9 +58,9 @@ const HomeContainer = () => {
       />
 
       <div>
-        <span className='text-3xl font-righteous uppercase sm:px-8 lg:px-16 px-40 sm:text-lg'>
+        <div className='text-3xl font-righteous uppercase sm:px-8 lg:px-16 px-40 sm:text-lg sm:leading-4'>
           {popularBeauty}
-        </span>
+        </div>
         {loadingBeauty ? (
           <Loader />
         ) : (
@@ -71,9 +71,9 @@ const HomeContainer = () => {
       </div>
 
       <div>
-        <span className='text-3xl font-righteous uppercase sm:px-8 lg:px-16 px-40 sm:text-lg'>
+        <div className='text-3xl font-righteous uppercase sm:px-8 lg:px-16 px-40 sm:text-lg sm:leading-4'>
           {popularLaptops}
-        </span>
+        </div>
         {loadingLaptops ? (
           <Loader />
         ) : (
@@ -84,9 +84,9 @@ const HomeContainer = () => {
       </div>
 
       <div className='sm:w-full'>
-        <span className='text-3xl font-righteous uppercase sm:px-8 lg:px-16 px-40 sm:text-lg'>
+        <div className='text-3xl font-righteous uppercase sm:px-8 lg:px-16 px-40 sm:text-lg sm:leading-4'>
           {popularFurniture}
-        </span>
+        </div>
         {loadingFurniture ? (
           <Loader />
         ) : (
@@ -111,9 +111,9 @@ const HomeContainer = () => {
       </div>
 
       <div>
-        <span className='text-3xl font-righteous uppercase sm:px-8 lg:px-16 px-40 sm:text-lg'>
+        <div className='text-3xl font-righteous uppercase sm:px-8 lg:px-16 px-40 sm:text-lg sm:leading-4'>
           {popularMensWatches}
-        </span>
+        </div>
         {loadingMensWatches ? (
           <Loader />
         ) : (
@@ -124,9 +124,9 @@ const HomeContainer = () => {
       </div>
 
       <div>
-        <span className='text-3xl font-righteous uppercase sm:px-8 lg:px-16 px-40 sm:text-lg'>
+        <div className='text-3xl font-righteous uppercase sm:px-8 lg:px-16 px-40 sm:text-lg sm:leading-4'>
           {popularWomensDresses}
-        </span>
+        </div>
         {loadingWomensDresses ? (
           <Loader />
         ) : (

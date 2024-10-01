@@ -34,7 +34,9 @@ const NavBar = () => {
         <Links />
       </div>
 
-      {isMobileMenuOpen && <MobileMenu onClose={toggleMobileMenu} />}
+      {isMobileMenuOpen && (
+        <MobileMenu isOpen={isMobileMenuOpen} onClose={toggleMobileMenu} />
+      )}
     </nav>
   );
 };
