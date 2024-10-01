@@ -30,7 +30,7 @@ const PaymentSection: FC<Props> = ({
   };
 
   return (
-    <div className='bg-primary p-9 flex flex-col gap-4'>
+    <div className='bg-primary p-9 flex flex-col gap-4 sm:gap-2 sm:p-5'>
       <span className='font-righteous uppercase text-lg'>{payment}</span>
 
       <div className='flex justify-between text-md'>
@@ -55,7 +55,11 @@ const PaymentSection: FC<Props> = ({
         </span>
       </div>
 
-      <Button text={buyNow} className='w-full' handleOnClick={handleBuyNow} />
+      <Button
+        text={buyNow}
+        className='w-full sm:text-md'
+        handleOnClick={handleBuyNow}
+      />
     </div>
   );
 };

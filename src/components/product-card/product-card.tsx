@@ -1,4 +1,5 @@
 import { FC, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import { Product } from '../../types/product-types';
 import ProductDetailsModal from '../product-details-modal/product-details-modal';
@@ -18,14 +19,30 @@ const ProductCard: FC<Props> = ({ product }) => {
   const handleModalOpen = () => setIsModalOpen(true);
   const handleModalClose = () => setIsModalOpen(false);
 
+  const handleImageError = (
+    event: React.SyntheticEvent<HTMLImageElement, Event>
+  ) => {
+    event.currentTarget.src = placeholder;
+  };
+
+  const location = useLocation();
+
   return (
     <div className='bg-white hover:shadow-md max-w-64 sm:max-w-full'>
-      <div className='w-64 h-72 bg-light flex items-center justify-center sm:w-80 sm:h-96'>
+      <div
+        className={`w-64 h-72 bg-light flex items-center justify-center ${
+          location.pathname.includes('products') ||
+          location.pathname.includes('wishlist')
+            ? 'sm:w-full sm:h-96'
+            : 'sm:w-56 sm:h-64'
+        }`}
+      >
         <img
           src={product.images[0] || placeholder}
           alt={product.title}
           className='object-contain w-full h-full'
           loading='lazy'
+          onError={handleImageError}
         />
       </div>
 
