@@ -9,8 +9,8 @@ interface Props {
 
 const ProductsSlider: FC<Props> = ({ products }) => {
   return (
-    <div className='relative px-36'>
-      <div className='flex overflow-x-auto scrollbar-hidden gap-6 py-4 px-4'>
+    <div className='relative px-36 sm:px-8'>
+      <div className='flex overflow-x-auto scrollbar-hidden gap-6 py-4 px-4 sm:px-0'>
         {products.map((product) => (
           <div key={product.id}>
             <ProductCard product={product} />

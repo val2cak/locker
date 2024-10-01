@@ -41,6 +41,7 @@ module.exports = {
       },
       backgroundImage: () => ({}),
       lineHeight: {
+        2: '1rem',
         3: '1.2rem',
         4: '1.6rem',
         5: '2.0rem',

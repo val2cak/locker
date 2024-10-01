@@ -19,8 +19,8 @@ const ProductCard: FC<Props> = ({ product }) => {
   const handleModalClose = () => setIsModalOpen(false);
 
   return (
-    <div className='bg-white hover:shadow-md max-w-64'>
-      <div className='w-64 h-72 bg-light flex items-center justify-center'>
+    <div className='bg-white hover:shadow-md max-w-64 sm:max-w-full'>
+      <div className='w-64 h-72 bg-light flex items-center justify-center sm:w-80 sm:h-96'>
         <img
           src={product.images[0] || placeholder}
           alt={product.title}

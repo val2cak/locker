@@ -12,6 +12,7 @@ interface Props {
   selectedCategory: Category | null;
   setSelectedCategory: (item: Category | null) => void;
   categories: Category[] | undefined;
+  handleResetFilters: () => void;
 }
 
 const Filters: FC<Props> = ({
@@ -20,6 +21,7 @@ const Filters: FC<Props> = ({
   selectedCategory,
   setSelectedCategory,
   categories,
+  handleResetFilters,
 }) => {
   const { reset } = locale.products;
 
@@ -31,13 +33,8 @@ const Filters: FC<Props> = ({
     setSelectedCategory(category);
   };
 
-  const handleResetFilters = () => {
-    setSort(sortOptions[0]);
-    setSelectedCategory(categories[0]);
-  };
-
   return (
-    <div className='bg-primary w-full sm:px-8 lg:px-16 px-40 py-4 flex gap-8'>
+    <div className='bg-primary w-full sm:px-8 lg:px-16 px-40 py-4 flex gap-8 sm:flex-col sm:gap-4'>
       <Dropdown
         items={categories || []}
         onSelect={handleCategorySelect}
@@ -53,7 +50,7 @@ const Filters: FC<Props> = ({
       <Button
         text={reset}
         handleOnClick={handleResetFilters}
-        className='!py-0.5 !px-8 !text-base !bg-dark !text-light'
+        className='!py-0.5 !px-8 !text-base !bg-dark !text-light sm:!py-1.5'
       />
     </div>
   );

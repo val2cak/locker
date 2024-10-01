@@ -3,6 +3,7 @@ import {
   SlBag as BasketIcon,
   SlHeart as WishlistIcon,
   SlUser as AccountIcon,
+  SlHome as HomeIcon,
 } from 'react-icons/sl';
 import { AiOutlineLogin as LoginIcon } from 'react-icons/ai';
 
@@ -31,6 +32,7 @@ export const Routes: CustomRouteObject[] = [
       {
         path: '',
         name: 'Home',
+        icon: HomeIcon,
         element: <HomeContainer />,
       },
       {

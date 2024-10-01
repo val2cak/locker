@@ -34,7 +34,7 @@ const Pagination: React.FC<PaginationProps> = ({
   };
 
   return (
-    <div className='flex py-4 w-full justify-center text-md font-semibold'>
+    <div className='flex py-4 w-full justify-center text-md font-semibold sm:flex-col'>
       <button
         onClick={goToFirstPage}
         disabled={currentPage === 1}

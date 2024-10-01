@@ -22,8 +22,8 @@ const MyAccountContainer = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className='sm:px-8 lg:px-16 px-40 py-8 gap-8 flex justify-between'>
-          <div className='flex flex-col w-1/2 gap-8'>
+        <div className='sm:px-8 lg:px-16 px-40 py-8 gap-8 flex justify-between sm:flex-col'>
+          <div className='flex flex-col w-1/2 gap-8 sm:w-full'>
             <span className='font-righteous uppercase text-lg'>
               {myAccount}
             </span>
@@ -40,7 +40,7 @@ const MyAccountContainer = () => {
             <PersonalInfoCard user={userData || {}} />
           </div>
 
-          <div className='flex flex-col w-1/2 gap-8 justify-between'>
+          <div className='flex flex-col w-1/2 gap-8 justify-between sm:w-full'>
             {userData?.address && (
               <DeliveryInfoCard
                 address={userData.address}

@@ -48,12 +48,12 @@ const HomeContainer = () => {
       <img
         src={hero}
         alt={'hero'}
-        className='w-full object-contain'
+        className='w-full object-contain sm:object-cover sm:h-40 sm:object-left'
         loading='lazy'
       />
 
       <div>
-        <span className='text-3xl font-righteous uppercase px-40'>
+        <span className='text-3xl font-righteous uppercase sm:px-8 lg:px-16 px-40 sm:text-lg'>
           {popularBeauty}
         </span>
         {loadingBeauty ? (
@@ -66,7 +66,7 @@ const HomeContainer = () => {
       </div>
 
       <div>
-        <span className='text-3xl font-righteous uppercase px-40'>
+        <span className='text-3xl font-righteous uppercase sm:px-8 lg:px-16 px-40 sm:text-lg'>
           {popularLaptops}
         </span>
         {loadingLaptops ? (
@@ -78,8 +78,8 @@ const HomeContainer = () => {
         )}
       </div>
 
-      <div>
-        <span className='text-3xl font-righteous uppercase px-40'>
+      <div className='sm:w-full'>
+        <span className='text-3xl font-righteous uppercase sm:px-8 lg:px-16 px-40 sm:text-lg'>
           {popularFurniture}
         </span>
         {loadingFurniture ? (
@@ -106,7 +106,7 @@ const HomeContainer = () => {
       </div>
 
       <div>
-        <span className='text-3xl font-righteous uppercase px-40'>
+        <span className='text-3xl font-righteous uppercase sm:px-8 lg:px-16 px-40 sm:text-lg'>
           {popularMensWatches}
         </span>
         {loadingMensWatches ? (
@@ -119,7 +119,7 @@ const HomeContainer = () => {
       </div>
 
       <div>
-        <span className='text-3xl font-righteous uppercase px-40'>
+        <span className='text-3xl font-righteous uppercase sm:px-8 lg:px-16 px-40 sm:text-lg'>
           {popularWomensDresses}
         </span>
         {loadingWomensDresses ? (
@@ -131,7 +131,7 @@ const HomeContainer = () => {
         )}
       </div>
 
-      <div className='bg-dark flex justify-between px-40 py-8'>
+      <div className='bg-dark flex justify-between sm:px-8 lg:px-16 px-40 py-8 sm:overflow-y-auto sm:text-lg'>
         {loadingSports ? (
           <Loader />
         ) : (

@@ -77,6 +77,15 @@ const ProductsContainer = () => {
 
   const totalPages = Math.ceil(totalProducts / limit);
 
+  const handleResetFilters = () => {
+    setSort(sortOptions[0]);
+    setSelectedCategory(categories[0]);
+    const queryParams = new URLSearchParams(location.search);
+    queryParams.delete('category');
+    navigate({ search: queryParams.toString() });
+    setCurrentPage(1);
+  };
+
   return (
     <Layout>
       {isLoading || categoriesLoading ? (
@@ -89,6 +98,7 @@ const ProductsContainer = () => {
             selectedCategory={selectedCategory}
             setSelectedCategory={setSelectedCategory}
             categories={categories}
+            handleResetFilters={handleResetFilters}
           />
 
           <div className='sm:px-8 lg:px-16 px-40 pb-8 flex flex-col items-center gap-8'>
@@ -96,7 +106,7 @@ const ProductsContainer = () => {
               {totalProducts} {itemsFound}
             </span>
 
-            <div className='grid sm:grid-cols-2 md:grid-cols-3 grid-cols-4 2xl:grid-cols-5 justify-between gap-x-14 gap-y-8'>
+            <div className='grid sm:grid-cols-1 md:grid-cols-3 grid-cols-4 2xl:grid-cols-5 justify-between gap-x-14 gap-y-8 sm:gap-x-0'>
               {isLoading ? (
                 <Loader />
               ) : (

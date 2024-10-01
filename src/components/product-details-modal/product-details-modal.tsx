@@ -66,7 +66,7 @@ const ProductDetailsModal: FC<Props> = ({ product, isOpen, onClose }) => {
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <div className='flex flex-row h-[600px]'>
+      <div className='flex flex-row h-[600px] sm:h-full sm:flex-col'>
         <ImageSlider images={product.images} title={product.title} />
 
         <div className='w-full p-4 flex flex-col gap-4'>
@@ -81,7 +81,7 @@ const ProductDetailsModal: FC<Props> = ({ product, isOpen, onClose }) => {
           </div>
 
           {userJson !== null && (
-            <div className='flex items-center gap-4'>
+            <div className='flex items-center gap-4 sm:flex-col sm:items-start'>
               {!isInBasket && (
                 <AmountSelector
                   amount={amount}
