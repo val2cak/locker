@@ -1,4 +1,5 @@
-import React from 'react';
+import { FC } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import {
   BsFillSkipStartFill as PreviousPageIcon,
   BsFillSkipForwardFill as LastPageIcon,
@@ -6,17 +7,15 @@ import {
   BsSkipBackwardFill as FirstPageIcon,
 } from 'react-icons/bs';
 
-interface PaginationProps {
+interface Props {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
 }
 
-const Pagination: React.FC<PaginationProps> = ({
-  currentPage,
-  totalPages,
-  onPageChange,
-}) => {
+const Pagination: FC<Props> = ({ currentPage, totalPages, onPageChange }) => {
+  const isSmallScreen = useMediaQuery({ query: '(max-width: 768px)' });
+
   const goToNextPage = () => {
     if (currentPage < totalPages) onPageChange(currentPage + 1);
   };
@@ -33,8 +32,22 @@ const Pagination: React.FC<PaginationProps> = ({
     onPageChange(totalPages);
   };
 
+  const getPageNumbers = () => {
+    const maxVisiblePages = isSmallScreen ? 4 : 5;
+    let start = Math.max(currentPage - Math.floor(maxVisiblePages / 2), 1);
+    let end = Math.min(start + maxVisiblePages - 1, totalPages);
+
+    if (end - start + 1 < maxVisiblePages && totalPages >= maxVisiblePages) {
+      start = Math.max(end - maxVisiblePages + 1, 1);
+    }
+
+    return Array.from({ length: end - start + 1 }, (_, index) => start + index);
+  };
+
+  const pageNumbers = getPageNumbers();
+
   return (
-    <div className='flex py-4 w-full justify-center text-md font-semibold sm:flex-col'>
+    <div className='flex py-4 w-full justify-center text-md font-semibold sm:flex-wrap'>
       <button
         onClick={goToFirstPage}
         disabled={currentPage === 1}
@@ -55,17 +68,17 @@ const Pagination: React.FC<PaginationProps> = ({
         <PreviousPageIcon className='text-lg' />
       </button>
 
-      {Array.from({ length: totalPages }, (_, index) => (
+      {pageNumbers.map((pageNumber) => (
         <button
-          key={index + 1}
-          onClick={() => onPageChange(index + 1)}
+          key={pageNumber}
+          onClick={() => onPageChange(pageNumber)}
           className={`px-4 py-0.5 ${
-            currentPage === index + 1
+            currentPage === pageNumber
               ? 'bg-primary text-light rounded-full'
               : 'hover:text-primary'
           }`}
         >
-          {index + 1}
+          {pageNumber}
         </button>
       ))}
 

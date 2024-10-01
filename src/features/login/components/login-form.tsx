@@ -43,7 +43,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div className='bg-white shadow-md p-20 flex flex-col gap-12'>
+    <div className='bg-white shadow-md p-20 flex flex-col gap-12 sm:p-8 sm:py-16'>
       <div className='flex flex-col'>
         <span className='text-center text-2xl font-righteous'>{signIn}</span>
 
@@ -59,7 +59,11 @@ const LoginForm = () => {
           <Input name='username' placeholder={username} />
           <Input name='password' type='password' placeholder={password} />
         </div>
-        <Button text={button} type='submit' className='w-full !bg-primary' />
+        <Button
+          text={button}
+          type='submit'
+          className='w-full !bg-primary sm:text-md'
+        />
       </Form>
     </div>
   );

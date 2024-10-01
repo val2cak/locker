@@ -1,8 +1,11 @@
 import { useNavigate } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
 
 import Layout from '../layout';
 import hero from '../../assets/images/home-hero.png';
 import banner from '../../assets/images/home-banner.png';
+import heroMobile from '../../assets/images/home-hero-mobile.png';
+import bannerMobile from '../../assets/images/home-banner-mobile.png';
 import Button from '../../components/button/button';
 import locale from '../../localization/locale';
 import { useGetProductsByCategoryQuery } from '../../hooks/products-api';
@@ -12,6 +15,8 @@ import { categories } from '../../constants/categories';
 import Loader from '../../components/loader/loader';
 
 const HomeContainer = () => {
+  const isSmallScreen = useMediaQuery({ query: '(max-width: 768px)' });
+
   const {
     button,
     popularBeauty,
@@ -46,9 +51,9 @@ const HomeContainer = () => {
   return (
     <Layout>
       <img
-        src={hero}
+        src={isSmallScreen ? heroMobile : hero}
         alt={'hero'}
-        className='w-full object-contain sm:object-cover sm:h-40 sm:object-left'
+        className='w-full object-contain'
         loading='lazy'
       />
 
@@ -93,7 +98,7 @@ const HomeContainer = () => {
 
       <div className='bg-dark py-8 flex flex-col items-center'>
         <img
-          src={banner}
+          src={isSmallScreen ? bannerMobile : banner}
           alt={'banner'}
           className='w-full object-contain'
           loading='lazy'
