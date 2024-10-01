@@ -14,7 +14,7 @@ const Layout: FC<Props> = ({ children }) => {
     <div className='min-h-screen m-0 w-full flex flex-col'>
       <NavBar />
 
-      <div className='flex sm:hidden'>
+      <div className='flex sm:hidden md:hidden'>
         <CategoriesBar />
       </div>
 
@@ -22,7 +22,9 @@ const Layout: FC<Props> = ({ children }) => {
         <SearchBar />
       </div>
 
-      <div className='flex-1 flex flex-col gap-16 sm:gap-8'>{children}</div>
+      <div className='flex-1 flex flex-col gap-16 sm:gap-8 md:gap-8'>
+        {children}
+      </div>
 
       <Footer />
     </div>

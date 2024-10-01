@@ -58,7 +58,7 @@ const HomeContainer = () => {
       />
 
       <div>
-        <div className='text-3xl font-righteous uppercase sm:px-8 lg:px-16 px-40 sm:text-lg sm:leading-4'>
+        <div className='text-3xl font-righteous uppercase sm:px-8 md:px-12 lg:px-16 px-40 sm:text-lg sm:leading-4'>
           {popularBeauty}
         </div>
         {loadingBeauty ? (
@@ -71,7 +71,7 @@ const HomeContainer = () => {
       </div>
 
       <div>
-        <div className='text-3xl font-righteous uppercase sm:px-8 lg:px-16 px-40 sm:text-lg sm:leading-4'>
+        <div className='text-3xl font-righteous uppercase sm:px-8 md:px-12 lg:px-16 px-40 sm:text-lg sm:leading-4'>
           {popularLaptops}
         </div>
         {loadingLaptops ? (
@@ -84,7 +84,7 @@ const HomeContainer = () => {
       </div>
 
       <div className='sm:w-full'>
-        <div className='text-3xl font-righteous uppercase sm:px-8 lg:px-16 px-40 sm:text-lg sm:leading-4'>
+        <div className='text-3xl font-righteous uppercase sm:px-8 md:px-12 lg:px-16 px-40 sm:text-lg sm:leading-4'>
           {popularFurniture}
         </div>
         {loadingFurniture ? (
@@ -111,7 +111,7 @@ const HomeContainer = () => {
       </div>
 
       <div>
-        <div className='text-3xl font-righteous uppercase sm:px-8 lg:px-16 px-40 sm:text-lg sm:leading-4'>
+        <div className='text-3xl font-righteous uppercase sm:px-8 md:px-12 lg:px-16 px-40 sm:text-lg sm:leading-4'>
           {popularMensWatches}
         </div>
         {loadingMensWatches ? (
@@ -124,7 +124,7 @@ const HomeContainer = () => {
       </div>
 
       <div>
-        <div className='text-3xl font-righteous uppercase sm:px-8 lg:px-16 px-40 sm:text-lg sm:leading-4'>
+        <div className='text-3xl font-righteous uppercase sm:px-8 md:px-12 lg:px-16 px-40 sm:text-lg sm:leading-4'>
           {popularWomensDresses}
         </div>
         {loadingWomensDresses ? (
@@ -136,7 +136,7 @@ const HomeContainer = () => {
         )}
       </div>
 
-      <div className='bg-dark flex justify-between sm:px-8 lg:px-16 px-40 py-8 sm:overflow-y-auto sm:text-lg'>
+      <div className='bg-dark flex justify-between sm:px-8 md:px-12 lg:px-16 px-40 py-8 overflow-y-auto sm:text-lg'>
         {loadingSports ? (
           <Loader />
         ) : (

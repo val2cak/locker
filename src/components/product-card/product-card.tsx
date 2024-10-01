@@ -33,7 +33,7 @@ const ProductCard: FC<Props> = ({ product }) => {
         className={`w-64 h-72 bg-light flex items-center justify-center ${
           location.pathname.includes('products') ||
           location.pathname.includes('wishlist')
-            ? 'sm:w-full sm:h-96'
+            ? 'sm:w-full sm:h-96 md:w-56 md:h-64 lg:w-56 lg:h-64'
             : 'sm:w-56 sm:h-64'
         }`}
       >

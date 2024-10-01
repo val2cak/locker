@@ -20,7 +20,7 @@ const WishlistContainer = () => {
 
   return (
     <Layout>
-      <div className='flex flex-col items-start gap-8 sm:px-8 lg:px-16 px-40 py-8'>
+      <div className='flex flex-col items-start gap-8 sm:px-8 md:px-12 lg:px-16 px-40 py-8'>
         <span className='font-righteous uppercase text-lg'>{wishlist}</span>
 
         {favorites.length === 0 ? (
@@ -33,7 +33,7 @@ const WishlistContainer = () => {
             />
           </div>
         ) : (
-          <div className='grid sm:grid-cols-1 md:grid-cols-3 grid-cols-4 2xl:grid-cols-5 justify-between gap-x-14 gap-y-8'>
+          <div className='grid sm:grid-cols-1 md:grid-cols-3 grid-cols-4 2xl:grid-cols-5 justify-between gap-x-14 gap-y-8 md:gap-x-8 lg:gap-x-4'>
             {favorites?.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

@@ -52,11 +52,11 @@ const BasketContainer = () => {
 
   return (
     <Layout>
-      <div className='sm:px-8 lg:px-16 px-40 py-8 flex flex-col gap-8'>
+      <div className='sm:px-8 md:px-12 lg:px-16 px-40 py-8 flex flex-col gap-8'>
         <span className='font-righteous uppercase text-lg'>{basket}</span>
 
-        <div className='flex gap-12 w-full justify-between sm:flex-col sm:gap-8'>
-          <div className='w-2/3 sm:w-full'>
+        <div className='flex gap-12 w-full justify-between sm:flex-col sm:gap-8 md:flex-col md:gap-8 lg:gap-4'>
+          <div className='w-2/3 sm:w-full md:w-full'>
             <BasketItemsSection
               basket={basketProducts}
               updateAmount={updateAmount}
@@ -64,7 +64,7 @@ const BasketContainer = () => {
             />
           </div>
 
-          <div className='w-1/3 sm:w-full'>
+          <div className='w-1/3 sm:w-full md:w-full'>
             <PaymentSection
               totalPrice={totalPrice}
               deliveryCost={deliveryCost}

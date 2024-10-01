@@ -34,7 +34,7 @@ const Filters: FC<Props> = ({
   };
 
   return (
-    <div className='bg-primary w-full sm:px-8 lg:px-16 px-40 py-4 flex gap-8 sm:flex-col sm:gap-4'>
+    <div className='bg-primary w-full sm:px-8 md:px-12 lg:px-16 px-40 py-4 flex gap-8 sm:flex-col sm:gap-4'>
       <Dropdown
         items={categories || []}
         onSelect={handleCategorySelect}

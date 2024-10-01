@@ -16,7 +16,7 @@ const CategoryCard: FC<Category> = ({ name, slug, url }) => {
 
   return (
     <div className='hover:shadow-md max-w-80 flex flex-col items-center justify-center gap-2 p-4 sm:max-w-64'>
-      <div className='bg-gray bg-opacity-10 w-80 h-96 flex items-center justify-center sm:w-56 sm:h-64'>
+      <div className='bg-gray bg-opacity-10 w-80 h-96 flex items-center justify-center sm:w-56 sm:h-64 md:w-64 md:h-72 lg:w-72 lg:h-80'>
         <img
           src={url || placeholder}
           alt={name}
@@ -25,7 +25,7 @@ const CategoryCard: FC<Category> = ({ name, slug, url }) => {
         />
       </div>
 
-      <span className='text-xl text-light uppercase font-righteous sm:text-lg'>
+      <span className='text-xl text-light uppercase font-righteous sm:text-lg md:text-lg'>
         {name}
       </span>
 

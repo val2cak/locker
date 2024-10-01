@@ -7,7 +7,7 @@ import AccountMenu from './account-menu';
 const Links = () => {
   return (
     <ul className='flex gap-6 items-center'>
-      <li className='relative sm:hidden'>
+      <li className='relative sm:hidden md:hidden'>
         <AccountMenu />
       </li>
 

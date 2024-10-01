@@ -101,12 +101,12 @@ const ProductsContainer = () => {
             handleResetFilters={handleResetFilters}
           />
 
-          <div className='sm:px-8 lg:px-16 px-40 pb-8 flex flex-col items-center gap-8'>
+          <div className='sm:px-8 md:px-12 lg:px-16 px-40 pb-8 flex flex-col items-center gap-8'>
             <span className='font-medium text-dark opacity-75'>
               {totalProducts} {itemsFound}
             </span>
 
-            <div className='grid sm:grid-cols-1 md:grid-cols-3 grid-cols-4 2xl:grid-cols-5 justify-between gap-x-14 gap-y-8 sm:gap-x-0'>
+            <div className='grid sm:grid-cols-1 md:grid-cols-3 grid-cols-4 2xl:grid-cols-5 justify-between gap-x-14 gap-y-8 sm:gap-x-0 md:gap-x-4 lg:gap-x-4'>
               {isLoading ? (
                 <Loader />
               ) : (

@@ -22,7 +22,7 @@ const MyAccountContainer = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className='sm:px-8 lg:px-16 px-40 py-8 gap-8 flex justify-between sm:flex-col'>
+        <div className='sm:px-8 md:px-12 lg:px-16 px-40 py-8 gap-8 flex justify-between sm:flex-col'>
           <div className='flex flex-col w-1/2 gap-8 sm:w-full'>
             <span className='font-righteous uppercase text-lg'>
               {myAccount}
