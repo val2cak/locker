@@ -23,11 +23,11 @@ const Modal: FC<ModalProps> = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
   return (
-    <div className='fixed inset-0 z-50 flex items-center justify-center bg-dark bg-opacity-50 sm:w-full sm:h-screen'>
-      <div className='bg-white w-2/3 p-8 relative overflow-y-auto sm:w-full'>
+    <div className='fixed inset-0 z-50 flex items-center justify-center bg-dark bg-opacity-50 sm:w-full sm:h-full sm:items-start'>
+      <div className='bg-white w-2/3 sm:w-full h-auto sm:h-full p-8 relative overflow-y-auto sm:overflow-y-scroll sm:px-6 sm:py-16'>
         <button
           onClick={onClose}
-          className='absolute top-6 right-6 hover:opacity-75'
+          className='absolute top-6 right-6 hover:opacity-75 sm:z-50'
         >
           <CloseIcon className='text-lg' />
         </button>

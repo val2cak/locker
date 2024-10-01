@@ -14,7 +14,7 @@ const NotFoundContainer = () => {
   };
 
   return (
-    <div className='flex flex-col justify-center items-center gap-8 h-full min-h-screen bg-light'>
+    <div className='flex flex-col justify-center items-center gap-8 h-full min-h-screen bg-light sm:px-8 lg:px-16 px-40'>
       <div className='flex flex-col gap-2 items-center'>
         <div className='scale-150 pb-4'>
           <Logo size={'w-40'} />
@@ -27,7 +27,7 @@ const NotFoundContainer = () => {
       <Button
         text={btnText}
         handleOnClick={navigateToHome}
-        className='!bg-primary'
+        className='!bg-primary sm:text-md'
       />
     </div>
   );
