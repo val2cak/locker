@@ -45,7 +45,7 @@ const CategoriesBar = () => {
           {categories.map((category) => (
             <li
               key={category.slug}
-              className='relative sm:w-full sm:text-md md:w-full md:text-md'
+              className='relative sm:w-full sm:text-md md:w-full md:text-md 2xl:text-md'
             >
               <button
                 className='hover:text-primary uppercase sm:w-full sm:flex sm:justify-between md:w-full md:flex md:justify-between'

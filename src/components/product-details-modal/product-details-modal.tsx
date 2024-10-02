@@ -66,7 +66,7 @@ const ProductDetailsModal: FC<Props> = ({ product, isOpen, onClose }) => {
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <div className='flex flex-row h-[600px] sm:h-full sm:flex-col sm:gap-4 md:h-full md:flex-col md:gap-4'>
+      <div className='flex flex-row h-[600px] sm:h-full sm:flex-col sm:gap-4 md:h-full md:flex-col md:gap-4 2xl:h-[700px]'>
         <ImageSlider images={product.images} title={product.title} />
 
         <div className='w-full p-4 flex flex-col gap-4 sm:p-0'>

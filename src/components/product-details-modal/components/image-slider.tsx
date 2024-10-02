@@ -31,7 +31,7 @@ const ImageSlider: FC<Props> = ({ images, title }) => {
         <img
           src={images[currentImageIndex] || placeholder}
           alt={title}
-          className='w-full h-[480px] object-contain bg-light bg-opacity-75'
+          className='w-full h-[480px] object-contain bg-light bg-opacity-75 2xl:h-[550px]'
           loading='lazy'
         />
         <button
@@ -47,7 +47,7 @@ const ImageSlider: FC<Props> = ({ images, title }) => {
           <ArrowForward />
         </button>
       </div>
-      <div className='flex gap-2 justify-start'>
+      <div className='flex gap-2 justify-start overflow-x-auto'>
         {images.map((img, idx) => (
           <img
             key={idx}

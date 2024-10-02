@@ -23,7 +23,7 @@ const NavBar = () => {
         >
           <MenuIcon />
         </button>
-        <Logo size={'w-64 sm:w-36 md:w-40 lg:w-56'} />
+        <Logo size={'w-64 sm:w-36 md:w-40 lg:w-56 2xl:w-72'} />
       </div>
 
       <span className='flex w-full sm:hidden md:hidden'>
