@@ -42,7 +42,7 @@ const Footer = () => {
             <Fragment key={index}>
               <li>
                 <Link
-                  to={`/products?category=${category.slug}`}
+                  to={`/products?category=${category.children[0].slug}`}
                   className='hover:text-primary text-opacity-50'
                 >
                   {category.name}
