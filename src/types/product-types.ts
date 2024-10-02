@@ -49,12 +49,16 @@ export interface SortOptions {
   order: string;
 }
 
+export interface Filters {
+  sort?: SortOptions;
+  selectedCategory?: Category;
+}
+
 export interface ProductsRequest {
   userInput?: string;
   skip?: number;
   limit?: number;
-  sort?: SortOptions;
-  category?: string;
+  filters?: Filters;
 }
 
 export interface BasketItem {

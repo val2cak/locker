@@ -17,7 +17,9 @@ export const productsApiSlice = createApi({
   endpoints(builder) {
     return {
       getProducts: builder.query<ProductsResponse, ProductsRequest>({
-        query: ({ userInput, skip, limit, sort, category }) => {
+        query: ({ userInput, skip, limit, filters }) => {
+          const { selectedCategory, sort } = filters;
+
           const queryParams = new URLSearchParams();
 
           if (skip) queryParams.append('skip', skip.toString());
@@ -32,8 +34,8 @@ export const productsApiSlice = createApi({
           if (userInput && userInput.trim() !== '') {
             queryParams.append('q', encodeURI(userInput));
             endpoint = `/search`;
-          } else if (category) {
-            endpoint = `/category/${category}`;
+          } else if (selectedCategory && selectedCategory.slug) {
+            endpoint = `/category/${selectedCategory.slug}`;
           } else {
             endpoint = '';
           }
