@@ -58,40 +58,40 @@ const HomeContainer = () => {
       />
 
       <div>
-        <div className='text-3xl font-righteous uppercase sm:px-8 md:px-12 lg:px-16 px-40 sm:text-lg sm:leading-4'>
-          {popularBeauty}
-        </div>
         {loadingBeauty ? (
           <Loader />
         ) : (
           beautyProducts && (
-            <ProductsSlider products={beautyProducts.products} />
+            <ProductsSlider
+              title={popularBeauty}
+              products={beautyProducts.products}
+            />
           )
         )}
       </div>
 
       <div>
-        <div className='text-3xl font-righteous uppercase sm:px-8 md:px-12 lg:px-16 px-40 sm:text-lg sm:leading-4'>
-          {popularLaptops}
-        </div>
         {loadingLaptops ? (
           <Loader />
         ) : (
           laptopsProducts && (
-            <ProductsSlider products={laptopsProducts.products} />
+            <ProductsSlider
+              title={popularLaptops}
+              products={laptopsProducts.products}
+            />
           )
         )}
       </div>
 
       <div className='sm:w-full'>
-        <div className='text-3xl font-righteous uppercase sm:px-8 md:px-12 lg:px-16 px-40 sm:text-lg sm:leading-4'>
-          {popularFurniture}
-        </div>
         {loadingFurniture ? (
           <Loader />
         ) : (
           furnitureProducts && (
-            <ProductsSlider products={furnitureProducts.products} />
+            <ProductsSlider
+              title={popularFurniture}
+              products={furnitureProducts.products}
+            />
           )
         )}
       </div>
@@ -111,27 +111,27 @@ const HomeContainer = () => {
       </div>
 
       <div>
-        <div className='text-3xl font-righteous uppercase sm:px-8 md:px-12 lg:px-16 px-40 sm:text-lg sm:leading-4'>
-          {popularMensWatches}
-        </div>
         {loadingMensWatches ? (
           <Loader />
         ) : (
           mensWatchesProducts && (
-            <ProductsSlider products={mensWatchesProducts.products} />
+            <ProductsSlider
+              title={popularMensWatches}
+              products={mensWatchesProducts.products}
+            />
           )
         )}
       </div>
 
       <div>
-        <div className='text-3xl font-righteous uppercase sm:px-8 md:px-12 lg:px-16 px-40 sm:text-lg sm:leading-4'>
-          {popularWomensDresses}
-        </div>
         {loadingWomensDresses ? (
           <Loader />
         ) : (
           womensDressesProducts && (
-            <ProductsSlider products={womensDressesProducts.products} />
+            <ProductsSlider
+              title={popularWomensDresses}
+              products={womensDressesProducts.products}
+            />
           )
         )}
       </div>

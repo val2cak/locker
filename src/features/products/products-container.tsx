@@ -83,6 +83,11 @@ const ProductsContainer = () => {
     setCurrentPage(1);
   };
 
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <Layout>
       {isLoading || categoriesLoading ? (
@@ -115,7 +120,7 @@ const ProductsContainer = () => {
               <Pagination
                 currentPage={currentPage}
                 totalPages={totalPages}
-                onPageChange={(page) => setCurrentPage(page)}
+                onPageChange={handlePageChange}
               />
             )}
           </div>
