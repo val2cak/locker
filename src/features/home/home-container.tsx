@@ -148,7 +148,7 @@ const HomeContainer = () => {
               }
               slug={
                 categories.find((category) => category.slug.includes('sports'))
-                  .slug
+                  .children[0].slug
               }
               url={sportsProducts.products[0].images[0]}
             />
@@ -168,7 +168,7 @@ const HomeContainer = () => {
               slug={
                 categories.find((category) =>
                   category.slug.includes('vehicles')
-                ).slug
+                ).children[0].slug
               }
               url={vehiclesProducts.products[0].images[0]}
             />
@@ -186,7 +186,7 @@ const HomeContainer = () => {
               }
               slug={
                 categories.find((category) => category.slug.includes('home'))
-                  .slug
+                  .children[0].slug
               }
               url={homeProducts.products[0].images[0]}
             />

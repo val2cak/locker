@@ -46,7 +46,7 @@ const Dropdown: FC<Props> = ({ items, onSelect, selectedItem }) => {
             selectedItem ? 'opacity-100' : 'opacity-70'
           } lining-nums`}
         >
-          {truncateText(selectedItem.name, 15)}
+          {truncateText(selectedItem.name, 10)}
         </p>
         <DropdownIcon className={`${open && 'rotate-180'} text-md`} />
       </div>

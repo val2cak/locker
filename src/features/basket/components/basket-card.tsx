@@ -15,11 +15,11 @@ interface Props {
 const BasketCard: FC<Props> = ({ item, onIncrease, onDecrease, onDelete }) => {
   return (
     <div className='flex justify-between items-start hover:shadow-md p-4 sm:p-0'>
-      <div className='flex gap-6'>
+      <div className='flex gap-6 sm:gap-2 sm:items-center'>
         <img
           src={item.product.images[0] || placeholder}
           alt={item.product.title}
-          className='w-36 h-40 object-cover bg-gray bg-opacity-20 sm:w-36 sm:h-40'
+          className='w-36 h-40 object-cover bg-gray bg-opacity-20 sm:w-20 sm:h-32'
           loading='lazy'
         />
 
@@ -28,7 +28,7 @@ const BasketCard: FC<Props> = ({ item, onIncrease, onDecrease, onDelete }) => {
             {item.product.title}
           </span>
 
-          <span className='font-semibold text-md hidden sm:flex'>
+          <span className='font-semibold text-md hidden sm:flex sm:text-base'>
             {'€'}
             {(item.product.price * item.amount).toFixed(2)}
           </span>
