@@ -17,7 +17,7 @@ export const productsApiSlice = createApi({
   endpoints(builder) {
     return {
       getProducts: builder.query<ProductsResponse, ProductsRequest>({
-        query: ({ userInput, skip, limit, filters }) => {
+        query: ({ userInput = '', skip = 0, limit = 20, filters = {} }) => {
           const { selectedCategory, sort } = filters;
 
           const queryParams = new URLSearchParams();
