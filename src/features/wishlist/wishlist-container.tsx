@@ -25,7 +25,7 @@ const WishlistContainer = () => {
 
         {favorites.length === 0 ? (
           <div className='flex flex-col gap-6 py-16 w-full items-center'>
-            <span className='text-lg font-semibold'>{noItems}</span>
+            <div className='text-lg font-semibold text-center'>{noItems}</div>
             <Button
               text={shopNow}
               className='!bg-primary'

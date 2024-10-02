@@ -11,7 +11,7 @@ import Pagination from '../../components/pagination/pagination';
 import locale from '../../localization/locale';
 import Loader from '../../components/loader/loader';
 import Filters from './components/filters';
-import { Category, SortOptions } from '../../types/product-types';
+import { Filters as FiltersType } from '../../types/product-types';
 import { sortOptions } from '../../constants/sort-options';
 
 const ProductsContainer = () => {
@@ -20,10 +20,11 @@ const ProductsContainer = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [limit] = useState(20);
   const [totalProducts, setTotalProducts] = useState(0);
-  const [sort, setSort] = useState<SortOptions>(sortOptions[0]);
-  const [selectedCategory, setSelectedCategory] = useState<Category | null>(
-    null
-  );
+
+  const [filters, setFilters] = useState<FiltersType>({
+    sort: sortOptions[0],
+    selectedCategory: null,
+  });
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -38,9 +39,11 @@ const ProductsContainer = () => {
     if (!categoriesLoading && categories) {
       const queryParams = new URLSearchParams(location.search);
       const categorySlug = queryParams.get('category');
-
       const category = categories.find((cat) => cat.slug === categorySlug);
-      setSelectedCategory(category ? category : null);
+      setFilters((prev) => ({
+        ...prev,
+        selectedCategory: category || null,
+      }));
     }
   }, [location.search, categories, categoriesLoading]);
 
@@ -48,8 +51,8 @@ const ProductsContainer = () => {
     const skip = (currentPage - 1) * limit;
 
     const queryParams = new URLSearchParams(location.search);
-    if (selectedCategory && selectedCategory.slug !== '') {
-      queryParams.set('category', selectedCategory.slug);
+    if (filters.selectedCategory && filters.selectedCategory.slug !== '') {
+      queryParams.set('category', filters.selectedCategory.slug);
     }
     navigate({ search: queryParams.toString() });
 
@@ -57,17 +60,9 @@ const ProductsContainer = () => {
       userInput: '',
       skip,
       limit,
-      sort,
-      category: selectedCategory?.slug,
+      filters: filters,
     });
-  }, [
-    currentPage,
-    limit,
-    sort,
-    selectedCategory,
-    triggerGetProducts,
-    navigate,
-  ]);
+  }, [currentPage, limit, filters, triggerGetProducts, navigate]);
 
   useEffect(() => {
     if (productsData) {
@@ -78,8 +73,10 @@ const ProductsContainer = () => {
   const totalPages = Math.ceil(totalProducts / limit);
 
   const handleResetFilters = () => {
-    setSort(sortOptions[0]);
-    setSelectedCategory(categories[0]);
+    setFilters({
+      sort: sortOptions[0],
+      selectedCategory: categories[0],
+    });
     const queryParams = new URLSearchParams(location.search);
     queryParams.delete('category');
     navigate({ search: queryParams.toString() });
@@ -93,10 +90,8 @@ const ProductsContainer = () => {
       ) : (
         <div className='flex flex-col items-center gap-8'>
           <Filters
-            sort={sort}
-            setSort={setSort}
-            selectedCategory={selectedCategory}
-            setSelectedCategory={setSelectedCategory}
+            filters={filters}
+            setFilters={setFilters}
             categories={categories}
             handleResetFilters={handleResetFilters}
           />
@@ -106,7 +101,7 @@ const ProductsContainer = () => {
               {totalProducts} {itemsFound}
             </span>
 
-            <div className='grid sm:grid-cols-1 md:grid-cols-3 grid-cols-4 2xl:grid-cols-5 justify-between gap-x-14 gap-y-8 sm:gap-x-0 md:gap-x-4 lg:gap-x-4'>
+            <div className='grid sm:grid-cols-1 md:grid-cols-3 grid-cols-4 2xl:grid-cols-5 justify-between gap-x-14 gap-y-8 sm:gap-x-0 md:gap-x-4 lg:gap-x-4 2xl:gap-x-24'>
               {isLoading ? (
                 <Loader />
               ) : (

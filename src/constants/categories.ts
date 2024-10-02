@@ -58,8 +58,8 @@ export const categories = [
     slug: 'vehicles',
     name: 'Vehicles',
     children: [
-      { slug: 'motorcycles', name: 'Motorcycles' },
-      { slug: 'vehicles', name: 'Vehicles' },
+      { slug: 'vehicle', name: 'Vehicles' },
+      { slug: 'motorcycle', name: 'Motorcycles' },
     ],
   },
 ];

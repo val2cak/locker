@@ -26,10 +26,10 @@ const BasketItemsSection: FC<BasketItemsSectionProps> = ({
   const { shopNow, noItems } = locale.basket;
 
   return (
-    <div className='flex flex-col gap-6 p-5 bg-light sm:gap-10'>
+    <div className='flex flex-col gap-6 p-5 bg-light sm:gap-10 sm:p-3'>
       {basket.length === 0 ? (
         <div className='flex flex-col items-center gap-6 py-16'>
-          <span className='text-lg font-semibold'>{noItems}</span>
+          <div className='text-lg font-semibold text-center'>{noItems}</div>
           <Button
             text={shopNow}
             className='!bg-primary'

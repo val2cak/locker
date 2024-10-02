@@ -2,35 +2,31 @@ import { FC } from 'react';
 
 import Dropdown from '../../../components/dropdown/dropdown';
 import { sortOptions } from '../../../constants/sort-options';
-import { SortOptions, Category } from '../../../types/product-types';
+import { Filters as FiltersType, Category } from '../../../types/product-types';
 import locale from '../../../localization/locale';
 import Button from '../../../components/button/button';
 
 interface Props {
-  sort: SortOptions;
-  setSort: (item: SortOptions) => void;
-  selectedCategory: Category | null;
-  setSelectedCategory: (item: Category | null) => void;
+  filters: FiltersType;
+  setFilters: (filters: FiltersType) => void;
   categories: Category[] | undefined;
   handleResetFilters: () => void;
 }
 
 const Filters: FC<Props> = ({
-  sort,
-  setSort,
-  selectedCategory,
-  setSelectedCategory,
+  filters,
+  setFilters,
   categories,
   handleResetFilters,
 }) => {
   const { reset } = locale.products;
 
-  const handleSortSelect = (selectedSort: SortOptions) => {
-    setSort(selectedSort);
+  const handleSortSelect = (selectedSort) => {
+    setFilters({ ...filters, sort: selectedSort });
   };
 
   const handleCategorySelect = (category: Category) => {
-    setSelectedCategory(category);
+    setFilters({ ...filters, selectedCategory: category });
   };
 
   return (
@@ -38,13 +34,13 @@ const Filters: FC<Props> = ({
       <Dropdown
         items={categories || []}
         onSelect={handleCategorySelect}
-        selectedItem={selectedCategory || categories[0]}
+        selectedItem={filters.selectedCategory || categories[0]}
       />
 
       <Dropdown
         items={sortOptions}
         onSelect={handleSortSelect}
-        selectedItem={sort}
+        selectedItem={filters.sort}
       />
 
       <Button

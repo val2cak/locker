@@ -66,7 +66,7 @@ const ProductDetailsModal: FC<Props> = ({ product, isOpen, onClose }) => {
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <div className='flex flex-row h-[600px] sm:h-full sm:flex-col sm:gap-4 md:h-full md:flex-col md:gap-4'>
+      <div className='flex flex-row h-[600px] sm:h-full sm:flex-col sm:gap-4 md:h-full md:flex-col md:gap-4 2xl:h-[700px]'>
         <ImageSlider images={product.images} title={product.title} />
 
         <div className='w-full p-4 flex flex-col gap-4 sm:p-0'>
@@ -83,7 +83,7 @@ const ProductDetailsModal: FC<Props> = ({ product, isOpen, onClose }) => {
           </div>
 
           {userJson !== null && (
-            <div className='flex items-center gap-4 sm:justify-between md:gap-8'>
+            <div className='flex items-center gap-4 md:gap-8 sm:w-full sm:flex-wrap sm:justify-between'>
               {!isInBasket && (
                 <AmountSelector
                   amount={amount}
@@ -94,7 +94,9 @@ const ProductDetailsModal: FC<Props> = ({ product, isOpen, onClose }) => {
 
               <Button
                 text={isInBasket ? removeButton : addButton}
-                className='!bg-primary'
+                className={`!bg-primary sm:!leading-3 sm:py-3 ${
+                  isInBasket ? '' : 'sm:order-2 sm:w-full'
+                }`}
                 handleOnClick={handleBasket}
               />
 
