@@ -6,6 +6,7 @@ import ProductDetailsModal from '../product-details-modal/product-details-modal'
 import locale from '../../localization/locale';
 import { truncateText } from '../../utils/truncate-text';
 import placeholder from '../../assets/images/product-placeholder.png';
+import FavoriteCell from '../favorite-cell/favorite-cell';
 
 interface Props {
   product: Product;
@@ -37,13 +38,17 @@ const ProductCard: FC<Props> = ({ product }) => {
       }`}
     >
       <div
-        className={`w-64 h-72 md:w-56 md:h-64 lg:w-56 lg:h-64 bg-light flex items-center justify-center ${
+        className={`relative w-64 h-72 md:w-56 md:h-64 lg:w-56 lg:h-64 bg-light flex items-center justify-center ${
           location.pathname.includes('products') ||
           location.pathname.includes('wishlist')
             ? 'sm:w-full sm:h-96'
             : 'sm:w-56 sm:h-64'
         }`}
       >
+        <div className='absolute top-3 right-3 bg-white rounded-full p-1 text-dark'>
+          <FavoriteCell item={product} size={'text-lg'} />
+        </div>
+
         <img
           src={product.images[0] || placeholder}
           alt={product.title}
