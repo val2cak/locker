@@ -28,12 +28,19 @@ const ProductCard: FC<Props> = ({ product }) => {
   const location = useLocation();
 
   return (
-    <div className='bg-white hover:shadow-md max-w-64 sm:max-w-full'>
+    <div
+      className={`bg-white hover:shadow-md w-64 md:w-56 lg:w-56 ${
+        location.pathname.includes('products') ||
+        location.pathname.includes('wishlist')
+          ? 'sm:w-full'
+          : 'sm:w-56'
+      }`}
+    >
       <div
-        className={`w-64 h-72 bg-light flex items-center justify-center ${
+        className={`w-64 h-72 md:w-56 md:h-64 lg:w-56 lg:h-64 bg-light flex items-center justify-center ${
           location.pathname.includes('products') ||
           location.pathname.includes('wishlist')
-            ? 'sm:w-full sm:h-96 md:w-56 md:h-64 lg:w-56 lg:h-64'
+            ? 'sm:w-full sm:h-96'
             : 'sm:w-56 sm:h-64'
         }`}
       >
@@ -46,7 +53,7 @@ const ProductCard: FC<Props> = ({ product }) => {
         />
       </div>
 
-      <div className='p-4 flex flex-col items-start'>
+      <div className='p-4 flex flex-col items-start w-full'>
         <span className='text-base font-semibold leading-3'>
           {product.title}
         </span>
