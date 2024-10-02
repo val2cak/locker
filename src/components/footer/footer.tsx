@@ -1,5 +1,5 @@
-import { Fragment } from 'react/jsx-runtime';
-import { Link } from 'react-router-dom';
+import { Fragment, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 import locale from '../../localization/locale';
 import { Routes } from '../../routes/routes';
@@ -8,6 +8,12 @@ import Logo from '../logo/logo';
 
 const Footer = () => {
   const { allRightsReserved } = locale.common;
+
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [location]);
 
   return (
     <div className='bottom-0 sm:px-8 md:px-12 lg:px-16 px-40 sm:py-16 py-24 w-full flex flex-col gap-16 bg-light text-dark text-base font-medium tracking-wider sm:gap-8'>
