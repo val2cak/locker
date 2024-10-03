@@ -1,11 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 import { User } from '../types/user-types';
+import { apiUrl } from '../config/config';
 
 export const usersApiSlice = createApi({
   reducerPath: 'User-Api-Slice',
   baseQuery: fetchBaseQuery({
-    baseUrl: `${import.meta.env.VITE_BASE_URL}/users`,
+    baseUrl: `${apiUrl}/users`,
   }),
   tagTypes: ['Users-List'],
   refetchOnMountOrArgChange: true,
