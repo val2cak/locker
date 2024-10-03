@@ -1,11 +1,10 @@
-# Locker - Product Catalog SPA
+# Locker - E-commerce Platform
 
 This project is a **Single Page Application (SPA)** built with **React**, **TypeScript**, and **Vite**. It showcases a product catalog with advanced filtering, sorting, and pagination features. The app is designed to provide a smooth and responsive user experience across desktop and mobile devices.
 
 ## Table of Contents
 
 - [Features](#features)
-  - [Nice to Have](#nice-to-have)
 - [Security Measures](#security-measures)
 - [CI/CD and Maintenance](#cicd-and-maintenance)
 - [API Reference](#api-reference)
@@ -21,27 +20,28 @@ This project is a **Single Page Application (SPA)** built with **React**, **Type
 ## Features
 
 - **Product Grid**: Displays products in a grid format (image, name, price, description up to 100 characters).
-- **Filtering**: Filter products by category and price range (e.g., $10-$50, $50-$100, $100+).
+- **Filtering**: Filter products by category.
 - **Sorting**: Sort products by price (high-to-low, low-to-high) and name (alphabetically).
 - **Search**: Search products by name using an input search bar.
 - **Pagination**: Supports pagination to manage large datasets (20 products per page).
 - **Product Details**: View product details in a modal upon clicking the "Details" button.
-
-### Nice to Have
-
-- **Cart Functionality**: Add products to a cart (cart state stored using local storage or session).
-- **User Authentication**: Differentiate between logged-in and anonymous users with token refresh mechanisms.
+- **Add to Basket**: Add products to a basket (basket state stored using local storage).
+- **Add to Wishlist**: Add products to a wishlist (wishlist state stored using local storage).
+- **My Account**: Displays account information.
+- **Login**: Allows users to login in order to use basket, wishlist and account features.
 
 ---
 
 ## Security Measures
 
-To ensure data security and protection:
+To ensure data security and protection, the following measures are implemented:
 
-- Use **HTTPS** for secure data transmission.
-- Implement **token-based authentication** (JWT) to protect user sessions.
-- Leverage **local storage or session storage** for sensitive user information, using encryption where necessary.
-- **Input validation and sanitization** to prevent attacks like **SQL Injection** and **XSS**.
+- **HTTPS**: The application is served over HTTPS in production to ensure secure data transmission.
+- **Local Storage for Token Management**: User session tokens and expiration data are stored in local storage for session management and route protection.
+- **Token Expiry Management**: Tokens are checked for expiration on each protected route. If the token has expired, the user is automatically logged out and redirected to the login page.
+- **Route Protection**: Protected routes ensure that only authenticated users can access certain parts of the application. Unauthenticated users or users with expired tokens are redirected to the login page.
+- **Input Validation**: Basic input validation is in place to prevent unauthorized access and mitigate common vulnerabilities such as Cross-Site Scripting (XSS).
+- **Docker Containerization**: The application is containerized using Docker to isolate and secure the app's environment, ensuring a consistent and secure deployment.
 
 ---
 
@@ -50,7 +50,7 @@ To ensure data security and protection:
 - **Version Control**: Use Git for managing source code and versioning.
 - **Continuous Integration (CI)**: Automate testing and build processes to ensure code quality.
 - **Continuous Deployment (CD)**: Automate the deployment process for faster feature delivery.
-- **Automated Testing**: Define and implement unit tests and integration tests to ensure the integrity of the app across different environments.
+- **Automated Testing**: Defined and implemented unit tests and integration tests to ensure the integrity of the app across different environments.
 
 ---
 
