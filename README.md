@@ -1,6 +1,6 @@
 # Locker - E-commerce Platform
 
-This project is a **Single Page Application (SPA)** built with **React**, **TypeScript**, and **Vite**. It showcases a product catalog with advanced filtering, sorting, and pagination features. The app is designed to provide a smooth and responsive user experience across desktop and mobile devices.
+This project is a **Single Page Application (SPA)** built with **React**, **TypeScript**, and **Vite**. It showcases a product catalog with advanced filtering, sorting, search, bookmarks, and shopping basket. The app is designed to provide a smooth and responsive user experience across desktop and mobile devices.
 
 ## Table of Contents
 
@@ -91,11 +91,11 @@ To run the app in development mode, follow these steps:
    npm install
    ```
 
-or
+   or
 
-    ```bash
-    yarn install
-    ```
+   ```bash
+   yarn install
+   ```
 
 3. Create a .env.local file in the root directory with your API credentials:
 
@@ -145,6 +145,6 @@ To create a production-ready build:
 
     or
 
-        ```bash
+    ```bash
     yarn build
     ```
