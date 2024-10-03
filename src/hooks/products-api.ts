@@ -5,11 +5,12 @@ import {
   ProductsRequest,
   ProductsResponse,
 } from '../types/product-types';
+import { apiUrl } from '../config/config';
 
 export const productsApiSlice = createApi({
   reducerPath: 'Product-Api-Slice',
   baseQuery: fetchBaseQuery({
-    baseUrl: `${import.meta.env.VITE_BASE_URL}/products`,
+    baseUrl: `${apiUrl}/products`,
   }),
   tagTypes: ['Products-List', 'Categories-List'],
   refetchOnMountOrArgChange: true,

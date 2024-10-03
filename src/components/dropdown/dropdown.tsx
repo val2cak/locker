@@ -35,18 +35,18 @@ const Dropdown: FC<Props> = ({ items, onSelect, selectedItem }) => {
   return (
     <div
       ref={ref}
-      className='sm:w-full w-56 pb-0 relative border border-dark rounded-full bg-transparent text-dark'
+      className='sm:w-full w-64 pb-0 relative border border-dark rounded-full bg-transparent text-dark'
     >
       <div
         onClick={() => setOpen(!open)}
-        className='flex items-center justify-between gap-2 hover:cursor-pointer font-semibold pl-6 pr-4 py-2 sm:w-full w-56'
+        className='flex items-center justify-between gap-2 hover:cursor-pointer font-semibold pl-6 pr-4 py-2 sm:w-full w-64'
       >
         <p
           className={`${
             selectedItem ? 'opacity-100' : 'opacity-70'
-          } lining-nums`}
+          } lining-nums flex-1`}
         >
-          {truncateText(selectedItem.name, 10)}
+          {truncateText(selectedItem.name, 20)}
         </p>
         <DropdownIcon className={`${open && 'rotate-180'} text-md`} />
       </div>

@@ -31,6 +31,8 @@ const SearchBar = () => {
     debounce(async (query: string) => {
       if (query.length > 2) {
         await getProducts({ userInput: query }).unwrap();
+      } else {
+        setSearchResults([]);
       }
     }, 300)
   ).current;
@@ -49,6 +51,8 @@ const SearchBar = () => {
   useEffect(() => {
     if (resultsData && resultsData.total >= 1) {
       setSearchResults(resultsData.products);
+    } else {
+      setSearchResults([]);
     }
   }, [resultsData]);
 
