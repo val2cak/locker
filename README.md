@@ -140,11 +140,11 @@ To build and run the app using Docker Compose:
 To create a production-ready build:
 
 ```bash
-npm install
+npm run build
 ```
 
 or
 
 ```bash
-yarn install
+yarn run build
 ```
